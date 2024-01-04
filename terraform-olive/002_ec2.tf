@@ -22,7 +22,7 @@ resource "local_file" "ssh-key" {
 #########################################################################################################
 resource "aws_instance" "bastion" {
   ami = "ami-086cae3329a3f7d75"
-  instance_type = "t3.micro"
+  instance_type = "t3.large"
   subnet_id = aws_subnet.public-subnet-a.id
   tags = {
     Name = "bastion"
@@ -40,8 +40,8 @@ output "bastion-public-ip" {
 ## Create ec2 instance for docker
 #########################################################################################################
 resource "aws_instance" "docker-playground" {
-  ami = "ami-086cae3329a3f7d75"
-  instance_type = "t3.micro"
+  ami = "ami-0bf8362da831d2394"
+  instance_type = "t4g.large"
   subnet_id = aws_subnet.public-subnet-a.id
   tags = {
     Name = "docker-playground"
