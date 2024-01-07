@@ -14,4 +14,9 @@ terraform {
       version = "4.0.5"
     }
   }
+  backend "s3" {
+    bucket = "cloudwave-tf-admin"
+    key    = "wave/terraform.tfstate"
+    region = "ap-northeast-2"
+  }
 }

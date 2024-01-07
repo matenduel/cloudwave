@@ -1,0 +1,38 @@
+version: "3.8"
+name: "cloudwave_terraform"
+
+services:
+  terraform:
+    image: matenduel/cloudwave:practice.v1
+    command:
+      - /bin/bash
+      - -c
+      - "mkdir -p /terraform && chmod -R 777 /terraform && sleep infinity"
+    environment:
+      TF_VAR_pem_location: "/root/.ssh"
+      # AWS Credentials
+      AWS_ACCESS_KEY_ID: ""
+      AWS_SECRET_ACCESS_KEY: ""
+      AWS_SESSION_TOKEN: ""
+      AWS_REGION: "ap-northeast-2"
+    volumes:
+      - ./src:/terraform
+      - credential:/root/.ssh
+
+  gitsync:
+    image: registry.k8s.io/git-sync/git-sync:v4.1.0
+    environment:
+      GITSYNC_REPO: https://github.com/matenduel/cloudwave
+      GITSYNC_ROOT: /tmp/git
+      GITSYNC_REF: main
+      GITSYNC_DEPTH: 1
+      GITSYNC_ONE_TIME: 1
+    volumes:
+      - ./src:/tmp/git
+    depends_on:
+      terraform:
+        condition: service_started
+
+volumes:
+  credential:
+    external: true
