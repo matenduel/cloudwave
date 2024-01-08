@@ -31,7 +31,7 @@ output "pem_location" {
 ## Create ec2 instance for Bastion
 #########################################################################################################
 resource "aws_iam_instance_profile" "ec2_base_profile" {
-  name = "ec2_base_profile"
+  name = "ec2_profile_allow_ecr"
   role = aws_iam_role.ec2_role.name
 }
 

@@ -3,7 +3,7 @@ name: "cloudwave_terraform"
 
 services:
   terraform:
-    image: matenduel/cloudwave:practice.v1
+    image: matenduel/cloudwave:practice.v2
     command:
       - /bin/bash
       - -c
@@ -15,11 +15,17 @@ services:
       AWS_SECRET_ACCESS_KEY: ""
       AWS_SESSION_TOKEN: ""
       AWS_REGION: "ap-northeast-2"
+    working_dir: /k8s
     volumes:
+      # - C:\Users\KDP\.kube:/root/.kube
+      # - C:\Users\KDT\.kube:/root/.kube
+      - ./k8s:/k8s
       - ./src:/terraform
       - credential:/root/.ssh
 
   gitsync:
+    profiles:
+      - init
     image: registry.k8s.io/git-sync/git-sync:v4.1.0
     environment:
       GITSYNC_REPO: https://github.com/matenduel/cloudwave
