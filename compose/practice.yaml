@@ -4,6 +4,7 @@ name: "cloudwave_terraform"
 services:
   terraform:
     image: matenduel/cloudwave:practice.v2
+    container_name: "tf"
     command:
       - /bin/bash
       - -c
@@ -27,6 +28,7 @@ services:
     profiles:
       - init
     image: registry.k8s.io/git-sync/git-sync:v4.1.0
+    container_name: "git"
     environment:
       GITSYNC_REPO: https://github.com/matenduel/cloudwave
       GITSYNC_ROOT: /tmp/git
