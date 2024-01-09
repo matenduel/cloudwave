@@ -21,6 +21,14 @@ module "eks" {
       cluster_name = var.cluster-name
       most_recent = true
     }
+    aws-ebs-csi-driver = {
+      cluster_name             = var.cluster-name
+      service_account_role_arn = module.ebs_csi_irsa_role.iam_role_arn
+    }
+    aws-efs-csi-driver = {
+      cluster_name             = var.cluster-name
+      service_account_role_arn = module.efs_csi_irsa_role.iam_role_arn
+    }
   }
 
   vpc_id                   = aws_vpc.vpc.id
@@ -61,6 +69,35 @@ module "vpc_cni_irsa" {
     }
   }
 }
+
+module "ebs_csi_irsa_role" {
+  source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+
+  role_name             = "ebs-csi"
+  attach_ebs_csi_policy = true
+
+  oidc_providers = {
+    ex = {
+      provider_arn               = module.eks.oidc_provider_arn
+      namespace_service_accounts = ["kube-system:ebs-csi-controller-sa"]
+    }
+  }
+}
+
+module "efs_csi_irsa_role" {
+  source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+
+  role_name             = "efs-csi"
+  attach_efs_csi_policy = true
+
+  oidc_providers = {
+    ex = {
+      provider_arn               = module.eks.oidc_provider_arn
+      namespace_service_accounts = ["kube-system:efs-csi-controller-sa"]
+    }
+  }
+}
+
 
 ############################################################################################
 ## 로드밸런서 콘트롤러 설정
