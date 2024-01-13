@@ -44,7 +44,3 @@ RUN git clone https://github.com/ahmetb/kubectx /opt/kubectx  \
 ENV TZ="Asia/Seoul"
 ENV PUID=1000
 ENV PGID=1000
-
-# Permission
-RUN chmod 777 /var/run/docker.sock
-
