@@ -2,27 +2,35 @@ version: "3.8"
 name: "cloudwave_practice"
 
 services:
-  terraform:
-    image: matenduel/cloudwave:practice.v2
-    container_name: "tf"
+  server:
+    image: cloudwave:practice.cs3
+    container_name: "wave"
     command:
       - /bin/bash
       - -c
-      - "mkdir -p /terraform && chmod -R 777 /terraform && sleep infinity"
+      - "mkdir -p /terraform && chmod -R 777 /terraform && chmod 777 /var/run/docker.sock && sleep infinity"
     environment:
-      TF_VAR_pem_location: "/root/.ssh"
-      # AWS Credentials
-      AWS_ACCESS_KEY_ID: ""
-      AWS_SECRET_ACCESS_KEY: ""
-      AWS_SESSION_TOKEN: ""
+      #      TF_VAR_pem_location: "/root/.ssh"
+      #      # AWS Credentials
+      #      AWS_ACCESS_KEY_ID: ""
+      #      AWS_SECRET_ACCESS_KEY: ""
+      #      AWS_SESSION_TOKEN: ""
       AWS_REGION: "ap-northeast-2"
+      # Code-server
+      PASSWORD: password
+      DEFAULT_WORKSPACE: /code
+      PUID: 1000
+      PGID: 1000
     working_dir: /k8s
+    ports:
+      - "8443:8443"
     volumes:
       # - C:\Users\KDP\.kube:/root/.kube
       # - C:\Users\KDT\.kube:/root/.kube
-      - ./k8s:/k8s
-      - ./src:/terraform
+      - ./k8s:/code/k8s
+      - ./src:/code/terraform
       - credential:/root/.ssh
+      - /var/run/docker.sock:/var/run/docker.sock
 
   gitsync:
     profiles:
@@ -38,7 +46,7 @@ services:
     volumes:
       - ./src:/tmp/git
     depends_on:
-      terraform:
+      server:
         condition: service_started
 
 volumes:
