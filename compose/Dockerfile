@@ -1,6 +1,8 @@
 # TODO Multi Stage?
+# https://hub.docker.com/r/linuxserver/code-server
 #FROM ubuntu:22.04
-FROM lscr.io/linuxserver/code-server:latest
+#FROM lscr.io/linuxserver/code-server:latest
+FROM linuxserver/code-server:4.90.3
 
 RUN apt-get update && apt-get -y upgrade
 
