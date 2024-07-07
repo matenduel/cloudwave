@@ -1,0 +1,28 @@
+version: "3.8"
+name: "cloudwave_practice1"
+
+services:
+  server:
+    image: matenduel/cloudwave_test:v2
+    container_name: "ide"
+    environment:
+      FILE__PASSWORD: /run/secrets/code-server-password
+    env_file:
+      - .env
+    working_dir: /code
+    ports:
+      - "8444:8443"
+    secrets:
+      - code-server-password
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - local_code:/code
+
+volumes:
+  local_code:
+    external: true
+    name: local_code
+
+secrets:
+  code-server-password:
+    file: password.txt

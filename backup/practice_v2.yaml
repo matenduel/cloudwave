@@ -3,7 +3,7 @@ name: "cloudwave_practice"
 
 services:
   server:
-    image: cloudwave:practice.cs3
+    image: cloudwave:practice.cs4
     container_name: "wave"
     command:
       - /bin/bash

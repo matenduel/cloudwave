@@ -1,0 +1,49 @@
+version: "3.8"
+name: "cloudwave_practice2"
+
+services:
+  server:
+    image: matenduel/cloudwave_test:v2
+    container_name: "ide"
+    environment:
+      FILE__PASSWORD: /run/secrets/code-server-password
+    env_file:
+      - .env
+    working_dir: /code
+    ports:
+      - "8444:8443"
+    secrets:
+      - code-server-password
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - local_code:/code/local
+      - remote_code:/code/remote
+    depends_on:
+      server:
+        condition: service_completed_successfully
+
+  gitsync:
+    profiles:
+      - init
+    image: registry.k8s.io/git-sync/git-sync:v4.1.0
+    container_name: "git"
+    environment:
+      GITSYNC_REPO: https://github.com/matenduel/cloudwave
+      GITSYNC_ROOT: /tmp/git
+      GITSYNC_REF: main
+      GITSYNC_DEPTH: 1
+      GITSYNC_ONE_TIME: 1
+    volumes:
+      - remote_code:/tmp
+
+volumes:
+  local_code:
+    external: true
+    name: local_code
+  remote_code:
+    external: true
+    name: remote_code
+
+secrets:
+  code-server-password:
+    file: password.txt
