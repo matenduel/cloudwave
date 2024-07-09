@@ -8,7 +8,7 @@ services:
     command:
       - /bin/bash
       - -c
-      - "mkdir -p /terraform && chmod -R 777 /terraform && chmod 777 /var/run/docker.sock && sleep infinity"
+      - "mkdir -p /terraform && chmod -R 777 /terraform && chmod 666 /var/run/docker.sock && sleep infinity"
     environment:
       #      TF_VAR_pem_location: "/root/.ssh"
       #      # AWS Credentials
@@ -21,6 +21,7 @@ services:
       DEFAULT_WORKSPACE: /code
       PUID: 1000
       PGID: 1000
+      SUDO_PASSWORD: su
     working_dir: /k8s
     ports:
       - "8443:8443"
@@ -31,6 +32,7 @@ services:
       - ./src:/code/terraform
       - credential:/root/.ssh
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/config
 
   gitsync:
     profiles:
