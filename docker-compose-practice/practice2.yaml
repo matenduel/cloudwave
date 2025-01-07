@@ -19,7 +19,7 @@ services:
       - local_code:/code/local
       - remote_code:/code/remote
     depends_on:
-      server:
+      gitsync:
         condition: service_completed_successfully
 
   gitsync:
