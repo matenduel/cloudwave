@@ -1,0 +1,46 @@
+# 20-prometheus 장 [고급](선택) 연습용 — 레거시 Java 배치 서비스.
+# 학생은 이 manifest를 배포한 뒤 ServiceMonitor를 직접 작성해 수집 대상으로 등록한다.
+# (ServiceMonitor는 의도적으로 이 파일에 없다 — 그것이 연습 문제다.)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: settlement-batch
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: settlement-batch
+  template:
+    metadata:
+      labels:
+        app: settlement-batch
+        service: settlement-batch
+    spec:
+      containers:
+        - name: settlement-batch
+          image: matenduel/cloudwave-observability:settlement-batch-0.1.0
+          ports:
+            - name: jmx-metrics
+              containerPort: 9404
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              memory: 256Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: settlement-batch
+  namespace: app
+  labels:
+    app: settlement-batch
+spec:
+  selector:
+    app: settlement-batch
+  ports:
+    - name: jmx-metrics
+      port: 9404
+      targetPort: jmx-metrics

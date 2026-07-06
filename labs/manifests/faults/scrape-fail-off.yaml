@@ -1,0 +1,16 @@
+# [fault] scrape-fail OFF — checkout-api Service를 정상 상태로 되돌린다.
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkout-api
+  namespace: app
+  labels:
+    app: checkout-api
+    monitoring: enabled
+spec:
+  selector:
+    app: checkout-api
+  ports:
+    - name: http-metrics
+      port: 8080
+      targetPort: http

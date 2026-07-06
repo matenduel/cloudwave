@@ -1,0 +1,20 @@
+# 20장(Prometheus) 설치 시점에 적용 — ServiceMonitor CRD가 kube-prometheus-stack과 함께 설치되므로
+# 데모 앱 배포(15장)보다 뒤에 와야 한다.
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: checkout-api
+  namespace: app
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      monitoring: enabled
+  namespaceSelector:
+    matchNames:
+      - app
+  endpoints:
+    - port: http-metrics
+      path: /metrics
+      interval: 10s

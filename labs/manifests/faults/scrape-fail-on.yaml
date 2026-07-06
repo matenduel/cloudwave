@@ -1,0 +1,17 @@
+# [fault] scrape-fail ON — checkout-api Service의 targetPort를 잘못된 값으로 바꾼다.
+# 수집 대상은 발견되지만 /metrics 수집이 connection refused로 실패한다.
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkout-api
+  namespace: app
+  labels:
+    app: checkout-api
+    monitoring: enabled
+spec:
+  selector:
+    app: checkout-api
+  ports:
+    - name: http-metrics
+      port: 8080
+      targetPort: 18080

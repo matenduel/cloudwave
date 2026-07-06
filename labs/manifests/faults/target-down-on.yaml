@@ -1,0 +1,17 @@
+# [fault] target-down ON — payment-service Service의 targetPort를 잘못된 값으로 바꾼다.
+# target은 남아 있고 up=0이 된다 (count(up)과 sum(up)이 갈라진다).
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  namespace: app
+  labels:
+    app: payment-service
+    monitoring: enabled
+spec:
+  selector:
+    app: payment-service
+  ports:
+    - name: http-metrics
+      port: 8080
+      targetPort: 18080

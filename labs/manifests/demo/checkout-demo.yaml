@@ -1,0 +1,167 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout-api
+  namespace: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: checkout-api
+  template:
+    metadata:
+      labels:
+        app: checkout-api
+        service: checkout-api
+    spec:
+      containers:
+        - name: checkout-api
+          image: matenduel/cloudwave-observability:checkout-demo-0.2.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVICE_NAME
+              value: checkout-api
+            - name: ROLE
+              value: checkout-api
+            - name: PAYMENT_URL
+              value: http://payment-service.app.svc.cluster.local:8080/authorize
+          ports:
+            - name: http
+              containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkout-api
+  namespace: app
+  labels:
+    app: checkout-api
+    monitoring: enabled
+spec:
+  selector:
+    app: checkout-api
+  ports:
+    - name: http-metrics
+      port: 8080
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-service
+  template:
+    metadata:
+      labels:
+        app: payment-service
+        service: payment-service
+    spec:
+      containers:
+        - name: payment-service
+          image: matenduel/cloudwave-observability:checkout-demo-0.2.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVICE_NAME
+              value: payment-service
+            - name: ROLE
+              value: payment-service
+            - name: EXTERNAL_PG_URL
+              value: http://external-pg.app.svc.cluster.local:8080/authorize
+          ports:
+            - name: http
+              containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  namespace: app
+  labels:
+    app: payment-service
+    monitoring: enabled
+spec:
+  selector:
+    app: payment-service
+  ports:
+    - name: http-metrics
+      port: 8080
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: external-pg
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: external-pg
+  template:
+    metadata:
+      labels:
+        app: external-pg
+        service: external-pg
+    spec:
+      containers:
+        - name: external-pg
+          image: matenduel/cloudwave-observability:checkout-demo-0.2.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVICE_NAME
+              value: external-pg
+            - name: ROLE
+              value: external-pg
+          ports:
+            - name: http
+              containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-pg
+  namespace: app
+  labels:
+    app: external-pg
+spec:
+  selector:
+    app: external-pg
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-worker
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-worker
+  template:
+    metadata:
+      labels:
+        app: order-worker
+        service: order-worker
+    spec:
+      containers:
+        - name: order-worker
+          image: matenduel/cloudwave-observability:checkout-demo-0.2.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVICE_NAME
+              value: order-worker
+            - name: ROLE
+              value: order-worker
+          ports:
+            - name: http
+              containerPort: 8080
+

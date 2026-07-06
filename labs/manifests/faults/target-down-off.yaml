@@ -1,0 +1,16 @@
+# [fault] target-down OFF — payment-service Service를 정상 상태로 되돌린다.
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  namespace: app
+  labels:
+    app: payment-service
+    monitoring: enabled
+spec:
+  selector:
+    app: payment-service
+  ports:
+    - name: http-metrics
+      port: 8080
+      targetPort: http
