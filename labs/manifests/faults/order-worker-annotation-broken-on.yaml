@@ -1,0 +1,34 @@
+# [fault] order-worker-annotation-broken ON — Pod annotation의 수집 포트를 8081로 바꾼다.
+# 컨테이너는 8080만 열기 때문에 Prometheus가 8081/metrics 수집에 실패하고 up 값이 0이 된다.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-worker
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-worker
+  template:
+    metadata:
+      labels:
+        app: order-worker
+        service: order-worker
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "8081"
+    spec:
+      containers:
+        - name: order-worker
+          image: matenduel/cloudwave-observability:checkout-demo-0.2.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVICE_NAME
+              value: order-worker
+            - name: ROLE
+              value: order-worker
+          ports:
+            - name: http
+              containerPort: 8080

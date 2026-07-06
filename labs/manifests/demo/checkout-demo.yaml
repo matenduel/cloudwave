@@ -151,6 +151,10 @@ spec:
       labels:
         app: order-worker
         service: order-worker
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "8080"
     spec:
       containers:
         - name: order-worker
