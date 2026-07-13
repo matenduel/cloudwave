@@ -1,0 +1,413 @@
+{"ts": 1783908000099867518, "iso_kst": "2026-07-13 11:00:00", "line": "[2026-07-13 01:59:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783908002849083674, "iso_kst": "2026-07-13 11:00:02", "line": "time=\"2026-07-13T02:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (16h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783908125262423470, "iso_kst": "2026-07-13 11:02:05", "line": "[2026-07-13 02:01:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783908245261007187, "iso_kst": "2026-07-13 11:04:05", "line": "[2026-07-13 02:03:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783908365271222958, "iso_kst": "2026-07-13 11:06:05", "line": "[2026-07-13 02:05:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783908485262467612, "iso_kst": "2026-07-13 11:08:05", "line": "[2026-07-13 02:07:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783908600000820196, "iso_kst": "2026-07-13 11:10:00", "line": "[2026-07-13 02:09:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783908604086383920, "iso_kst": "2026-07-13 11:10:04", "line": "time=\"2026-07-13T02:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (16h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783908725274496630, "iso_kst": "2026-07-13 11:12:05", "line": "[2026-07-13 02:11:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783908845263816318, "iso_kst": "2026-07-13 11:14:05", "line": "[2026-07-13 02:13:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783908965269159512, "iso_kst": "2026-07-13 11:16:05", "line": "[2026-07-13 02:15:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783909085269687014, "iso_kst": "2026-07-13 11:18:05", "line": "[2026-07-13 02:17:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783909200091713796, "iso_kst": "2026-07-13 11:20:00", "line": "[2026-07-13 02:19:55] [LOG] REST accessed endpoint /v1/api/players OK (x2)"}
+{"ts": 1783909200216049892, "iso_kst": "2026-07-13 11:20:00", "line": "time=\"2026-07-13T02:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (16h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783909325271654971, "iso_kst": "2026-07-13 11:22:05", "line": "[2026-07-13 02:21:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783909445270447475, "iso_kst": "2026-07-13 11:24:05", "line": "[2026-07-13 02:23:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783909565273659115, "iso_kst": "2026-07-13 11:26:05", "line": "[2026-07-13 02:25:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783909685267140811, "iso_kst": "2026-07-13 11:28:05", "line": "[2026-07-13 02:27:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783909800099876336, "iso_kst": "2026-07-13 11:30:00", "line": "[2026-07-13 02:29:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783909801486343229, "iso_kst": "2026-07-13 11:30:01", "line": "time=\"2026-07-13T02:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (17h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783909925274488869, "iso_kst": "2026-07-13 11:32:05", "line": "[2026-07-13 02:31:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783910045270819179, "iso_kst": "2026-07-13 11:34:05", "line": "[2026-07-13 02:33:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783910165278818242, "iso_kst": "2026-07-13 11:36:05", "line": "[2026-07-13 02:35:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783910285280766312, "iso_kst": "2026-07-13 11:38:05", "line": "[2026-07-13 02:37:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783910400000542291, "iso_kst": "2026-07-13 11:40:00", "line": "[2026-07-13 02:39:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783910402677346569, "iso_kst": "2026-07-13 11:40:02", "line": "time=\"2026-07-13T02:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (17h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783910525278006243, "iso_kst": "2026-07-13 11:42:05", "line": "[2026-07-13 02:41:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783910645275157372, "iso_kst": "2026-07-13 11:44:05", "line": "[2026-07-13 02:43:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783910765277501341, "iso_kst": "2026-07-13 11:46:05", "line": "[2026-07-13 02:45:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783910885282712322, "iso_kst": "2026-07-13 11:48:05", "line": "[2026-07-13 02:47:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783911000091929087, "iso_kst": "2026-07-13 11:50:00", "line": "[2026-07-13 02:49:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783911003913675919, "iso_kst": "2026-07-13 11:50:03", "line": "time=\"2026-07-13T02:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (17h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783911125283761438, "iso_kst": "2026-07-13 11:52:05", "line": "[2026-07-13 02:51:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783911245276934091, "iso_kst": "2026-07-13 11:54:05", "line": "[2026-07-13 02:53:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783911365276707360, "iso_kst": "2026-07-13 11:56:05", "line": "[2026-07-13 02:55:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783911485273484591, "iso_kst": "2026-07-13 11:58:05", "line": "[2026-07-13 02:57:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783911600099609117, "iso_kst": "2026-07-13 12:00:00", "line": "[2026-07-13 02:59:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783911605130901030, "iso_kst": "2026-07-13 12:00:05", "line": "time=\"2026-07-13T03:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (17h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783911725278433527, "iso_kst": "2026-07-13 12:02:05", "line": "[2026-07-13 03:01:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783911845274048090, "iso_kst": "2026-07-13 12:04:05", "line": "[2026-07-13 03:03:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783911965280358379, "iso_kst": "2026-07-13 12:06:05", "line": "[2026-07-13 03:05:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783912085289990389, "iso_kst": "2026-07-13 12:08:05", "line": "[2026-07-13 03:07:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783912200000800545, "iso_kst": "2026-07-13 12:10:00", "line": "[2026-07-13 03:09:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783912201317039472, "iso_kst": "2026-07-13 12:10:01", "line": "time=\"2026-07-13T03:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (17h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783912325285844819, "iso_kst": "2026-07-13 12:12:05", "line": "[2026-07-13 03:11:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783912445286358957, "iso_kst": "2026-07-13 12:14:05", "line": "[2026-07-13 03:13:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783912565286401415, "iso_kst": "2026-07-13 12:16:05", "line": "[2026-07-13 03:15:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783912685288553147, "iso_kst": "2026-07-13 12:18:05", "line": "[2026-07-13 03:17:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783912800092341828, "iso_kst": "2026-07-13 12:20:00", "line": "[2026-07-13 03:19:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783912802580116626, "iso_kst": "2026-07-13 12:20:02", "line": "time=\"2026-07-13T03:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (17h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783912925280822125, "iso_kst": "2026-07-13 12:22:05", "line": "[2026-07-13 03:21:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783913045287436513, "iso_kst": "2026-07-13 12:24:05", "line": "[2026-07-13 03:23:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783913165279222963, "iso_kst": "2026-07-13 12:26:05", "line": "[2026-07-13 03:25:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783913285289494087, "iso_kst": "2026-07-13 12:28:05", "line": "[2026-07-13 03:27:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783913400099654796, "iso_kst": "2026-07-13 12:30:00", "line": "[2026-07-13 03:29:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783913403769747263, "iso_kst": "2026-07-13 12:30:03", "line": "time=\"2026-07-13T03:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (18h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783913525286993244, "iso_kst": "2026-07-13 12:32:05", "line": "[2026-07-13 03:31:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783913645283487784, "iso_kst": "2026-07-13 12:34:05", "line": "[2026-07-13 03:33:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783913765299015775, "iso_kst": "2026-07-13 12:36:05", "line": "[2026-07-13 03:35:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783913885287240038, "iso_kst": "2026-07-13 12:38:05", "line": "[2026-07-13 03:37:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783914000000639325, "iso_kst": "2026-07-13 12:40:00", "line": "[2026-07-13 03:39:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783914005002739048, "iso_kst": "2026-07-13 12:40:05", "line": "time=\"2026-07-13T03:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (18h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783914125291565487, "iso_kst": "2026-07-13 12:42:05", "line": "[2026-07-13 03:41:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783914245291363486, "iso_kst": "2026-07-13 12:44:05", "line": "[2026-07-13 03:43:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783914365289071824, "iso_kst": "2026-07-13 12:46:05", "line": "[2026-07-13 03:45:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783914485287462844, "iso_kst": "2026-07-13 12:48:05", "line": "[2026-07-13 03:47:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783914600091951592, "iso_kst": "2026-07-13 12:50:00", "line": "[2026-07-13 03:49:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783914601203637244, "iso_kst": "2026-07-13 12:50:01", "line": "time=\"2026-07-13T03:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (18h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783914725300342731, "iso_kst": "2026-07-13 12:52:05", "line": "[2026-07-13 03:51:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783914845305818618, "iso_kst": "2026-07-13 12:54:05", "line": "[2026-07-13 03:53:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783914965305380742, "iso_kst": "2026-07-13 12:56:05", "line": "[2026-07-13 03:55:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783915085302320959, "iso_kst": "2026-07-13 12:58:05", "line": "[2026-07-13 03:57:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783915200099695877, "iso_kst": "2026-07-13 13:00:00", "line": "[2026-07-13 03:59:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783915202478784670, "iso_kst": "2026-07-13 13:00:02", "line": "time=\"2026-07-13T04:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (18h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783915325302641802, "iso_kst": "2026-07-13 13:02:05", "line": "[2026-07-13 04:01:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783915445304322206, "iso_kst": "2026-07-13 13:04:05", "line": "[2026-07-13 04:03:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783915565313804903, "iso_kst": "2026-07-13 13:06:05", "line": "[2026-07-13 04:05:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783915685302111489, "iso_kst": "2026-07-13 13:08:05", "line": "[2026-07-13 04:07:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783915800000494637, "iso_kst": "2026-07-13 13:10:00", "line": "[2026-07-13 04:09:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783915803694817774, "iso_kst": "2026-07-13 13:10:03", "line": "time=\"2026-07-13T04:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (18h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783915925302777653, "iso_kst": "2026-07-13 13:12:05", "line": "[2026-07-13 04:11:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783916045301795116, "iso_kst": "2026-07-13 13:14:05", "line": "[2026-07-13 04:13:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783916165311329348, "iso_kst": "2026-07-13 13:16:05", "line": "[2026-07-13 04:15:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783916285311248060, "iso_kst": "2026-07-13 13:18:05", "line": "[2026-07-13 04:17:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783916400047367389, "iso_kst": "2026-07-13 13:20:00", "line": "[2026-07-13 04:19:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783916404901367847, "iso_kst": "2026-07-13 13:20:04", "line": "time=\"2026-07-13T04:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (18h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783916525304288237, "iso_kst": "2026-07-13 13:22:05", "line": "[2026-07-13 04:21:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783916546365595460, "iso_kst": "2026-07-13 13:22:26", "line": "[2026-07-13 04:22:24] [LOG] Player A <ip> connected the server."}
+{"ts": 1783916556617303989, "iso_kst": "2026-07-13 13:22:36", "line": "[2026-07-13 04:22:36] [LOG] Player A joined the server."}
+{"ts": 1783916556806325559, "iso_kst": "2026-07-13 13:22:36", "line": "Player A has joined"}
+{"ts": 1783916645305772874, "iso_kst": "2026-07-13 13:24:05", "line": "[2026-07-13 04:23:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783916765319576353, "iso_kst": "2026-07-13 13:26:05", "line": "[2026-07-13 04:25:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783916885312824075, "iso_kst": "2026-07-13 13:28:05", "line": "[2026-07-13 04:27:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783917000000475179, "iso_kst": "2026-07-13 13:30:00", "line": "[2026-07-13 04:29:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783917002040281580, "iso_kst": "2026-07-13 13:30:02", "line": "time=\"2026-07-13T04:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (19h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783917125317926003, "iso_kst": "2026-07-13 13:32:05", "line": "[2026-07-13 04:31:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783917245310191271, "iso_kst": "2026-07-13 13:34:05", "line": "[2026-07-13 04:33:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783917365308378986, "iso_kst": "2026-07-13 13:36:05", "line": "[2026-07-13 04:35:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783917485322867570, "iso_kst": "2026-07-13 13:38:05", "line": "[2026-07-13 04:37:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783917600092860269, "iso_kst": "2026-07-13 13:40:00", "line": "[2026-07-13 04:39:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783917603630453259, "iso_kst": "2026-07-13 13:40:03", "line": "time=\"2026-07-13T04:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (19h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783917725308356521, "iso_kst": "2026-07-13 13:42:05", "line": "[2026-07-13 04:41:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783917845306703988, "iso_kst": "2026-07-13 13:44:05", "line": "[2026-07-13 04:43:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783917965316030423, "iso_kst": "2026-07-13 13:46:05", "line": "[2026-07-13 04:45:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783918085315761418, "iso_kst": "2026-07-13 13:48:05", "line": "[2026-07-13 04:47:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783918200099711567, "iso_kst": "2026-07-13 13:50:00", "line": "[2026-07-13 04:49:50] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783918200478700924, "iso_kst": "2026-07-13 13:50:00", "line": "time=\"2026-07-13T04:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (19h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783918325313238783, "iso_kst": "2026-07-13 13:52:05", "line": "[2026-07-13 04:51:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783918445317343363, "iso_kst": "2026-07-13 13:54:05", "line": "[2026-07-13 04:53:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783918565307765133, "iso_kst": "2026-07-13 13:56:05", "line": "[2026-07-13 04:55:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783918685319019696, "iso_kst": "2026-07-13 13:58:05", "line": "[2026-07-13 04:57:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783918800000751961, "iso_kst": "2026-07-13 14:00:00", "line": "[2026-07-13 04:59:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783918802323847399, "iso_kst": "2026-07-13 14:00:02", "line": "time=\"2026-07-13T05:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (19h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783918925323361291, "iso_kst": "2026-07-13 14:02:05", "line": "[2026-07-13 05:01:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783919045314362521, "iso_kst": "2026-07-13 14:04:05", "line": "[2026-07-13 05:03:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783919165312461485, "iso_kst": "2026-07-13 14:06:05", "line": "[2026-07-13 05:05:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783919285313315107, "iso_kst": "2026-07-13 14:08:05", "line": "[2026-07-13 05:07:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783919400091364496, "iso_kst": "2026-07-13 14:10:00", "line": "[2026-07-13 05:09:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783919401895951083, "iso_kst": "2026-07-13 14:10:01", "line": "time=\"2026-07-13T05:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (19h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783919525313375950, "iso_kst": "2026-07-13 14:12:05", "line": "[2026-07-13 05:11:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783919645323068926, "iso_kst": "2026-07-13 14:14:05", "line": "[2026-07-13 05:13:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783919765323320919, "iso_kst": "2026-07-13 14:16:05", "line": "[2026-07-13 05:15:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783919885319665261, "iso_kst": "2026-07-13 14:18:05", "line": "[2026-07-13 05:17:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783920000083816397, "iso_kst": "2026-07-13 14:20:00", "line": "[2026-07-13 05:19:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783920003748776812, "iso_kst": "2026-07-13 14:20:03", "line": "time=\"2026-07-13T05:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (19h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783920125321374777, "iso_kst": "2026-07-13 14:22:05", "line": "[2026-07-13 05:21:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783920245315265775, "iso_kst": "2026-07-13 14:24:05", "line": "[2026-07-13 05:23:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783920365329587761, "iso_kst": "2026-07-13 14:26:05", "line": "[2026-07-13 05:25:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783920485319965561, "iso_kst": "2026-07-13 14:28:05", "line": "[2026-07-13 05:27:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783920600000499230, "iso_kst": "2026-07-13 14:30:00", "line": "[2026-07-13 05:29:50] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783920600615466000, "iso_kst": "2026-07-13 14:30:00", "line": "time=\"2026-07-13T05:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (20h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783920725332150619, "iso_kst": "2026-07-13 14:32:05", "line": "[2026-07-13 05:31:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783920845322606752, "iso_kst": "2026-07-13 14:34:05", "line": "[2026-07-13 05:33:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783920965327209433, "iso_kst": "2026-07-13 14:36:05", "line": "[2026-07-13 05:35:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783921085324466828, "iso_kst": "2026-07-13 14:38:05", "line": "[2026-07-13 05:37:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783921200092424719, "iso_kst": "2026-07-13 14:40:00", "line": "[2026-07-13 05:39:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783921202637489082, "iso_kst": "2026-07-13 14:40:02", "line": "time=\"2026-07-13T05:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (20h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783921325360173343, "iso_kst": "2026-07-13 14:42:05", "line": "[2026-07-13 05:41:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783921445325579100, "iso_kst": "2026-07-13 14:44:05", "line": "[2026-07-13 05:43:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783921565324315720, "iso_kst": "2026-07-13 14:46:05", "line": "[2026-07-13 05:45:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783921685339390702, "iso_kst": "2026-07-13 14:48:05", "line": "[2026-07-13 05:47:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783921800100426834, "iso_kst": "2026-07-13 14:50:00", "line": "[2026-07-13 05:49:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783921804575032301, "iso_kst": "2026-07-13 14:50:04", "line": "time=\"2026-07-13T05:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (20h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783921925342038366, "iso_kst": "2026-07-13 14:52:05", "line": "[2026-07-13 05:51:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783922045340763277, "iso_kst": "2026-07-13 14:54:05", "line": "[2026-07-13 05:53:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783922165329503002, "iso_kst": "2026-07-13 14:56:05", "line": "[2026-07-13 05:55:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783922285338088323, "iso_kst": "2026-07-13 14:58:05", "line": "[2026-07-13 05:57:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783922400000803538, "iso_kst": "2026-07-13 15:00:00", "line": "[2026-07-13 05:59:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783922401391288087, "iso_kst": "2026-07-13 15:00:01", "line": "time=\"2026-07-13T06:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (20h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783922525334772244, "iso_kst": "2026-07-13 15:02:05", "line": "[2026-07-13 06:01:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783922645345075671, "iso_kst": "2026-07-13 15:04:05", "line": "[2026-07-13 06:03:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783922765347460628, "iso_kst": "2026-07-13 15:06:05", "line": "[2026-07-13 06:05:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783922885338076299, "iso_kst": "2026-07-13 15:08:05", "line": "[2026-07-13 06:07:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783923000091617659, "iso_kst": "2026-07-13 15:10:00", "line": "[2026-07-13 06:09:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783923003092890228, "iso_kst": "2026-07-13 15:10:03", "line": "time=\"2026-07-13T06:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (20h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783923125346563242, "iso_kst": "2026-07-13 15:12:05", "line": "[2026-07-13 06:11:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783923245349898899, "iso_kst": "2026-07-13 15:14:05", "line": "[2026-07-13 06:13:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783923365349457890, "iso_kst": "2026-07-13 15:16:05", "line": "[2026-07-13 06:15:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783923485346951151, "iso_kst": "2026-07-13 15:18:05", "line": "[2026-07-13 06:17:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783923600099714497, "iso_kst": "2026-07-13 15:20:00", "line": "[2026-07-13 06:19:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783923605004734470, "iso_kst": "2026-07-13 15:20:05", "line": "time=\"2026-07-13T06:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (20h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783923725342537029, "iso_kst": "2026-07-13 15:22:05", "line": "[2026-07-13 06:21:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783923845343376764, "iso_kst": "2026-07-13 15:24:05", "line": "[2026-07-13 06:23:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783923949447321847, "iso_kst": "2026-07-13 15:25:49", "line": "[2026-07-13 06:25:48] [LOG] Player A left the server."}
+{"ts": 1783923949543114460, "iso_kst": "2026-07-13 15:25:49", "line": "Player A has left"}
+{"ts": 1783923965348307556, "iso_kst": "2026-07-13 15:26:05", "line": "[2026-07-13 06:25:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783923980345837681, "iso_kst": "2026-07-13 15:26:20", "line": "[2026-07-13 06:26:20] [LOG] Player A <ip> connected the server."}
+{"ts": 1783923994994060692, "iso_kst": "2026-07-13 15:26:34", "line": "[2026-07-13 06:26:31] [LOG] Player A joined the server."}
+{"ts": 1783923995060940994, "iso_kst": "2026-07-13 15:26:35", "line": "Player A has joined"}
+{"ts": 1783924030487913943, "iso_kst": "2026-07-13 15:27:10", "line": "[2026-07-13 06:27:09] [LOG] Player A left the server."}
+{"ts": 1783924031382701235, "iso_kst": "2026-07-13 15:27:11", "line": "Player A has left"}
+{"ts": 1783924085343247267, "iso_kst": "2026-07-13 15:28:05", "line": "[2026-07-13 06:27:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783924200000483150, "iso_kst": "2026-07-13 15:30:00", "line": "[2026-07-13 06:29:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783924203139144480, "iso_kst": "2026-07-13 15:30:03", "line": "time=\"2026-07-13T06:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (21h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783924325349483261, "iso_kst": "2026-07-13 15:32:05", "line": "[2026-07-13 06:31:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783924445343784665, "iso_kst": "2026-07-13 15:34:05", "line": "[2026-07-13 06:33:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783924565343188312, "iso_kst": "2026-07-13 15:36:05", "line": "[2026-07-13 06:35:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783924685348232104, "iso_kst": "2026-07-13 15:38:05", "line": "[2026-07-13 06:37:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783924800092537778, "iso_kst": "2026-07-13 15:40:00", "line": "[2026-07-13 06:39:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783924804316314510, "iso_kst": "2026-07-13 15:40:04", "line": "time=\"2026-07-13T06:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (21h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783924925358842630, "iso_kst": "2026-07-13 15:42:05", "line": "[2026-07-13 06:41:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783925045345762177, "iso_kst": "2026-07-13 15:44:05", "line": "[2026-07-13 06:43:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783925165343661914, "iso_kst": "2026-07-13 15:46:05", "line": "[2026-07-13 06:45:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783925285353207822, "iso_kst": "2026-07-13 15:48:05", "line": "[2026-07-13 06:47:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783925400099586537, "iso_kst": "2026-07-13 15:50:00", "line": "[2026-07-13 06:49:50] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783925400510857429, "iso_kst": "2026-07-13 15:50:00", "line": "time=\"2026-07-13T06:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (21h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783925525354809304, "iso_kst": "2026-07-13 15:52:05", "line": "[2026-07-13 06:51:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783925645350949143, "iso_kst": "2026-07-13 15:54:05", "line": "[2026-07-13 06:53:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783925765360053984, "iso_kst": "2026-07-13 15:56:05", "line": "[2026-07-13 06:55:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783925885348019755, "iso_kst": "2026-07-13 15:58:05", "line": "[2026-07-13 06:57:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783926000000783545, "iso_kst": "2026-07-13 16:00:00", "line": "[2026-07-13 06:59:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783926001723002614, "iso_kst": "2026-07-13 16:00:01", "line": "time=\"2026-07-13T07:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (21h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783926125353248199, "iso_kst": "2026-07-13 16:02:05", "line": "[2026-07-13 07:01:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783926245361965553, "iso_kst": "2026-07-13 16:04:05", "line": "[2026-07-13 07:03:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783926365350090032, "iso_kst": "2026-07-13 16:06:05", "line": "[2026-07-13 07:05:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783926485364201285, "iso_kst": "2026-07-13 16:08:05", "line": "[2026-07-13 07:07:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783926600091810280, "iso_kst": "2026-07-13 16:10:00", "line": "[2026-07-13 07:09:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783926602959193805, "iso_kst": "2026-07-13 16:10:02", "line": "time=\"2026-07-13T07:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (21h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783926725351745600, "iso_kst": "2026-07-13 16:12:05", "line": "[2026-07-13 07:11:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783926845360034678, "iso_kst": "2026-07-13 16:14:05", "line": "[2026-07-13 07:13:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783926965349308783, "iso_kst": "2026-07-13 16:16:05", "line": "[2026-07-13 07:15:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783927085353557266, "iso_kst": "2026-07-13 16:18:05", "line": "[2026-07-13 07:17:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783927200099862218, "iso_kst": "2026-07-13 16:20:00", "line": "[2026-07-13 07:19:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783927204170016432, "iso_kst": "2026-07-13 16:20:04", "line": "time=\"2026-07-13T07:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (21h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783927325350503676, "iso_kst": "2026-07-13 16:22:05", "line": "[2026-07-13 07:21:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783927445354380359, "iso_kst": "2026-07-13 16:24:05", "line": "[2026-07-13 07:23:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783927565365131489, "iso_kst": "2026-07-13 16:26:05", "line": "[2026-07-13 07:25:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783927685356876180, "iso_kst": "2026-07-13 16:28:05", "line": "[2026-07-13 07:27:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783927800000513826, "iso_kst": "2026-07-13 16:30:00", "line": "[2026-07-13 07:29:55] [LOG] REST accessed endpoint /v1/api/players OK (x2)"}
+{"ts": 1783927800357400846, "iso_kst": "2026-07-13 16:30:00", "line": "time=\"2026-07-13T07:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (22h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783927925351647987, "iso_kst": "2026-07-13 16:32:05", "line": "[2026-07-13 07:31:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783928045365670055, "iso_kst": "2026-07-13 16:34:05", "line": "[2026-07-13 07:33:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783928165365950451, "iso_kst": "2026-07-13 16:36:05", "line": "[2026-07-13 07:35:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783928285371975440, "iso_kst": "2026-07-13 16:38:05", "line": "[2026-07-13 07:37:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783928400092539338, "iso_kst": "2026-07-13 16:40:00", "line": "[2026-07-13 07:39:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783928401578219698, "iso_kst": "2026-07-13 16:40:01", "line": "time=\"2026-07-13T07:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (22h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783928525363960974, "iso_kst": "2026-07-13 16:42:05", "line": "[2026-07-13 07:41:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783928645377302757, "iso_kst": "2026-07-13 16:44:05", "line": "[2026-07-13 07:43:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783928765366548791, "iso_kst": "2026-07-13 16:46:05", "line": "[2026-07-13 07:45:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783928885379180291, "iso_kst": "2026-07-13 16:48:05", "line": "[2026-07-13 07:47:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783929000099694892, "iso_kst": "2026-07-13 16:50:00", "line": "[2026-07-13 07:49:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783929002767405463, "iso_kst": "2026-07-13 16:50:02", "line": "time=\"2026-07-13T07:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (22h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783929125373385638, "iso_kst": "2026-07-13 16:52:05", "line": "[2026-07-13 07:51:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783929245376572322, "iso_kst": "2026-07-13 16:54:05", "line": "[2026-07-13 07:53:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783929365366685651, "iso_kst": "2026-07-13 16:56:05", "line": "[2026-07-13 07:55:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783929485367511293, "iso_kst": "2026-07-13 16:58:05", "line": "[2026-07-13 07:57:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783929600000532968, "iso_kst": "2026-07-13 17:00:00", "line": "[2026-07-13 07:59:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783929603964099304, "iso_kst": "2026-07-13 17:00:03", "line": "time=\"2026-07-13T08:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (22h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783929619131391787, "iso_kst": "2026-07-13 17:00:19", "line": "[2026-07-13 08:00:18] [LOG] Player A <ip> connected the server."}
+{"ts": 1783929634343172570, "iso_kst": "2026-07-13 17:00:34", "line": "[2026-07-13 08:00:30] [LOG] Player A joined the server."}
+{"ts": 1783929634393116599, "iso_kst": "2026-07-13 17:00:34", "line": "Player A has joined"}
+{"ts": 1783929725578015272, "iso_kst": "2026-07-13 17:02:05", "line": "[2026-07-13 08:01:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783929845378490523, "iso_kst": "2026-07-13 17:04:05", "line": "[2026-07-13 08:03:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783929965372308738, "iso_kst": "2026-07-13 17:06:05", "line": "[2026-07-13 08:05:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783930085377690625, "iso_kst": "2026-07-13 17:08:05", "line": "[2026-07-13 08:07:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783930109079318205, "iso_kst": "2026-07-13 17:08:29", "line": "[2026-07-13 08:08:27] [LOG] Player B <ip> connected the server."}
+{"ts": 1783930120371526689, "iso_kst": "2026-07-13 17:08:40", "line": "[2026-07-13 08:08:37] [LOG] Player B joined the server."}
+{"ts": 1783930120436146341, "iso_kst": "2026-07-13 17:08:40", "line": "Player B has joined"}
+{"ts": 1783930200091579502, "iso_kst": "2026-07-13 17:10:00", "line": "[2026-07-13 08:09:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783930201537528125, "iso_kst": "2026-07-13 17:10:01", "line": "time=\"2026-07-13T08:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (22h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783930325385559786, "iso_kst": "2026-07-13 17:12:05", "line": "[2026-07-13 08:11:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783930445384500990, "iso_kst": "2026-07-13 17:14:05", "line": "[2026-07-13 08:13:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783930565381423476, "iso_kst": "2026-07-13 17:16:05", "line": "[2026-07-13 08:15:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783930685375077558, "iso_kst": "2026-07-13 17:18:05", "line": "[2026-07-13 08:17:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783930800099603670, "iso_kst": "2026-07-13 17:20:00", "line": "[2026-07-13 08:19:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783930803858965283, "iso_kst": "2026-07-13 17:20:03", "line": "time=\"2026-07-13T08:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (22h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783930925386582417, "iso_kst": "2026-07-13 17:22:05", "line": "[2026-07-13 08:21:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783931045382623641, "iso_kst": "2026-07-13 17:24:05", "line": "[2026-07-13 08:23:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783931165375640241, "iso_kst": "2026-07-13 17:26:05", "line": "[2026-07-13 08:25:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783931285376802394, "iso_kst": "2026-07-13 17:28:05", "line": "[2026-07-13 08:27:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783931400000472933, "iso_kst": "2026-07-13 17:30:00", "line": "[2026-07-13 08:29:50] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783931400707888762, "iso_kst": "2026-07-13 17:30:00", "line": "time=\"2026-07-13T08:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (23h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783931525380279941, "iso_kst": "2026-07-13 17:32:05", "line": "[2026-07-13 08:31:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783931645383862888, "iso_kst": "2026-07-13 17:34:05", "line": "[2026-07-13 08:33:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783931765387575490, "iso_kst": "2026-07-13 17:36:05", "line": "[2026-07-13 08:35:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783931885384676253, "iso_kst": "2026-07-13 17:38:05", "line": "[2026-07-13 08:37:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783932000091756638, "iso_kst": "2026-07-13 17:40:00", "line": "[2026-07-13 08:39:57] [LOG] REST accessed endpoint /v1/api/players OK (x2)"}
+{"ts": 1783932002944098045, "iso_kst": "2026-07-13 17:40:02", "line": "time=\"2026-07-13T08:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (23h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783932125377636178, "iso_kst": "2026-07-13 17:42:05", "line": "[2026-07-13 08:41:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783932245383725326, "iso_kst": "2026-07-13 17:44:05", "line": "[2026-07-13 08:43:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783932365383144002, "iso_kst": "2026-07-13 17:46:05", "line": "[2026-07-13 08:45:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783932485390989948, "iso_kst": "2026-07-13 17:48:05", "line": "[2026-07-13 08:47:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783932600087635263, "iso_kst": "2026-07-13 17:50:00", "line": "[2026-07-13 08:49:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783932604635380374, "iso_kst": "2026-07-13 17:50:04", "line": "time=\"2026-07-13T08:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (23h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783932725383735522, "iso_kst": "2026-07-13 17:52:05", "line": "[2026-07-13 08:51:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783932845394859622, "iso_kst": "2026-07-13 17:54:05", "line": "[2026-07-13 08:53:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783932965383232826, "iso_kst": "2026-07-13 17:56:05", "line": "[2026-07-13 08:55:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783933085381599363, "iso_kst": "2026-07-13 17:58:05", "line": "[2026-07-13 08:57:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783933200000475423, "iso_kst": "2026-07-13 18:00:00", "line": "[2026-07-13 08:59:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783933201507496276, "iso_kst": "2026-07-13 18:00:01", "line": "time=\"2026-07-13T09:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (23h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783933325383600563, "iso_kst": "2026-07-13 18:02:05", "line": "[2026-07-13 09:01:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783933445389723200, "iso_kst": "2026-07-13 18:04:05", "line": "[2026-07-13 09:03:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783933565394510781, "iso_kst": "2026-07-13 18:06:05", "line": "[2026-07-13 09:05:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783933685386562042, "iso_kst": "2026-07-13 18:08:05", "line": "[2026-07-13 09:07:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783933800091702331, "iso_kst": "2026-07-13 18:10:00", "line": "[2026-07-13 09:09:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783933804321925183, "iso_kst": "2026-07-13 18:10:04", "line": "time=\"2026-07-13T09:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (23h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783933925392626376, "iso_kst": "2026-07-13 18:12:05", "line": "[2026-07-13 09:11:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783934022030996791, "iso_kst": "2026-07-13 18:13:42", "line": "[2026-07-13 09:13:41] [LOG] Player B left the server."}
+{"ts": 1783934022141768125, "iso_kst": "2026-07-13 18:13:42", "line": "Player B has left"}
+{"ts": 1783934045397501239, "iso_kst": "2026-07-13 18:14:05", "line": "[2026-07-13 09:13:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783934165389586245, "iso_kst": "2026-07-13 18:16:05", "line": "[2026-07-13 09:15:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783934285392088309, "iso_kst": "2026-07-13 18:18:05", "line": "[2026-07-13 09:17:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783934400000964176, "iso_kst": "2026-07-13 18:20:00", "line": "[2026-07-13 09:19:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783934401542246995, "iso_kst": "2026-07-13 18:20:01", "line": "time=\"2026-07-13T09:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (23h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783934525400439185, "iso_kst": "2026-07-13 18:22:05", "line": "[2026-07-13 09:21:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783934645390914018, "iso_kst": "2026-07-13 18:24:05", "line": "[2026-07-13 09:23:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783934765389730170, "iso_kst": "2026-07-13 18:26:05", "line": "[2026-07-13 09:25:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783934885396926698, "iso_kst": "2026-07-13 18:28:05", "line": "[2026-07-13 09:27:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783935000000751248, "iso_kst": "2026-07-13 18:30:00", "line": "[2026-07-13 09:29:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783935003334002646, "iso_kst": "2026-07-13 18:30:03", "line": "time=\"2026-07-13T09:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (24h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783935125398107924, "iso_kst": "2026-07-13 18:32:05", "line": "[2026-07-13 09:31:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783935245394931482, "iso_kst": "2026-07-13 18:34:05", "line": "[2026-07-13 09:33:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783935365403227050, "iso_kst": "2026-07-13 18:36:05", "line": "[2026-07-13 09:35:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783935485395063173, "iso_kst": "2026-07-13 18:38:05", "line": "[2026-07-13 09:37:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783935600091557306, "iso_kst": "2026-07-13 18:40:00", "line": "[2026-07-13 09:39:50] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783935600874128846, "iso_kst": "2026-07-13 18:40:00", "line": "time=\"2026-07-13T09:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (24h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783935725406655440, "iso_kst": "2026-07-13 18:42:05", "line": "[2026-07-13 09:41:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783935845399310922, "iso_kst": "2026-07-13 18:44:05", "line": "[2026-07-13 09:43:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783935965398932766, "iso_kst": "2026-07-13 18:46:05", "line": "[2026-07-13 09:45:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783936085395888137, "iso_kst": "2026-07-13 18:48:05", "line": "[2026-07-13 09:47:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783936200099669436, "iso_kst": "2026-07-13 18:50:00", "line": "[2026-07-13 09:49:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783936202706352800, "iso_kst": "2026-07-13 18:50:02", "line": "time=\"2026-07-13T09:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (24h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783936325400590220, "iso_kst": "2026-07-13 18:52:05", "line": "[2026-07-13 09:51:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783936445402955592, "iso_kst": "2026-07-13 18:54:05", "line": "[2026-07-13 09:53:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783936565407878843, "iso_kst": "2026-07-13 18:56:05", "line": "[2026-07-13 09:55:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783936685417976983, "iso_kst": "2026-07-13 18:58:05", "line": "[2026-07-13 09:57:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783936800000544900, "iso_kst": "2026-07-13 19:00:00", "line": "[2026-07-13 09:59:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783936804690175737, "iso_kst": "2026-07-13 19:00:04", "line": "time=\"2026-07-13T10:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (24h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783936925409429584, "iso_kst": "2026-07-13 19:02:05", "line": "[2026-07-13 10:01:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783937000416246344, "iso_kst": "2026-07-13 19:03:20", "line": "[2026-07-13 10:03:18] [LOG] Player C <ip> connected the server."}
+{"ts": 1783937009103509247, "iso_kst": "2026-07-13 19:03:29", "line": "[2026-07-13 10:03:27] [LOG] Player C joined the server."}
+{"ts": 1783937012018072253, "iso_kst": "2026-07-13 19:03:32", "line": "Player C has joined"}
+{"ts": 1783937045408994093, "iso_kst": "2026-07-13 19:04:05", "line": "[2026-07-13 10:03:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783937165421360207, "iso_kst": "2026-07-13 19:06:05", "line": "[2026-07-13 10:05:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783937285410435777, "iso_kst": "2026-07-13 19:08:05", "line": "[2026-07-13 10:07:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783937400091474781, "iso_kst": "2026-07-13 19:10:00", "line": "[2026-07-13 10:09:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783937401465778348, "iso_kst": "2026-07-13 19:10:01", "line": "time=\"2026-07-13T10:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (24h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783937525425164184, "iso_kst": "2026-07-13 19:12:05", "line": "[2026-07-13 10:11:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783937645420203523, "iso_kst": "2026-07-13 19:14:05", "line": "[2026-07-13 10:13:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783937765416678727, "iso_kst": "2026-07-13 19:16:05", "line": "[2026-07-13 10:15:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783937885414542415, "iso_kst": "2026-07-13 19:18:05", "line": "[2026-07-13 10:17:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783938000099586910, "iso_kst": "2026-07-13 19:20:00", "line": "[2026-07-13 10:19:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783938003171340674, "iso_kst": "2026-07-13 19:20:03", "line": "time=\"2026-07-13T10:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (24h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783938125462112253, "iso_kst": "2026-07-13 19:22:05", "line": "[2026-07-13 10:21:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783938245422493648, "iso_kst": "2026-07-13 19:24:05", "line": "[2026-07-13 10:23:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783938365431466223, "iso_kst": "2026-07-13 19:26:05", "line": "[2026-07-13 10:25:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783938485425799774, "iso_kst": "2026-07-13 19:28:05", "line": "[2026-07-13 10:27:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783938600000553366, "iso_kst": "2026-07-13 19:30:00", "line": "[2026-07-13 10:29:54] [LOG] REST accessed endpoint /v1/api/players OK (x2)"}
+{"ts": 1783938600026596452, "iso_kst": "2026-07-13 19:30:00", "line": "time=\"2026-07-13T10:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (25h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783938725472234575, "iso_kst": "2026-07-13 19:32:05", "line": "[2026-07-13 10:31:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783938845428222890, "iso_kst": "2026-07-13 19:34:05", "line": "[2026-07-13 10:33:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783938965428018390, "iso_kst": "2026-07-13 19:36:05", "line": "[2026-07-13 10:35:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783939085428805068, "iso_kst": "2026-07-13 19:38:05", "line": "[2026-07-13 10:37:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783939200091577476, "iso_kst": "2026-07-13 19:40:00", "line": "[2026-07-13 10:39:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783939202139392434, "iso_kst": "2026-07-13 19:40:02", "line": "time=\"2026-07-13T10:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (25h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783939325431812559, "iso_kst": "2026-07-13 19:42:05", "line": "[2026-07-13 10:41:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783939445425595206, "iso_kst": "2026-07-13 19:44:05", "line": "[2026-07-13 10:43:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783939565429491323, "iso_kst": "2026-07-13 19:46:05", "line": "[2026-07-13 10:45:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783939685441023709, "iso_kst": "2026-07-13 19:48:05", "line": "[2026-07-13 10:47:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783939800100631948, "iso_kst": "2026-07-13 19:50:00", "line": "[2026-07-13 10:49:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783939804151040708, "iso_kst": "2026-07-13 19:50:04", "line": "time=\"2026-07-13T10:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (25h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783939925431158941, "iso_kst": "2026-07-13 19:52:05", "line": "[2026-07-13 10:51:55] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783940045435473907, "iso_kst": "2026-07-13 19:54:05", "line": "[2026-07-13 10:53:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783940165434322988, "iso_kst": "2026-07-13 19:56:05", "line": "[2026-07-13 10:55:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783940285431475855, "iso_kst": "2026-07-13 19:58:05", "line": "[2026-07-13 10:57:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783940400000549076, "iso_kst": "2026-07-13 20:00:00", "line": "[2026-07-13 10:59:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783940402224662335, "iso_kst": "2026-07-13 20:00:02", "line": "time=\"2026-07-13T11:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (25h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783940414268323855, "iso_kst": "2026-07-13 20:00:14", "line": "[2026-07-13 11:00:13] [LOG] Player A left the server."}
+{"ts": 1783940417474743914, "iso_kst": "2026-07-13 20:00:17", "line": "Player A has left"}
+{"ts": 1783940435442094966, "iso_kst": "2026-07-13 20:00:35", "line": "[2026-07-13 11:00:33] [LOG] Player A <ip> connected the server."}
+{"ts": 1783940444216937742, "iso_kst": "2026-07-13 20:00:44", "line": "[2026-07-13 11:00:43] [LOG] Player A joined the server."}
+{"ts": 1783940447841706797, "iso_kst": "2026-07-13 20:00:47", "line": "Player A has joined"}
+{"ts": 1783940493352054353, "iso_kst": "2026-07-13 20:01:33", "line": "[2026-07-13 11:01:32] [LOG] Player B <ip> connected the server."}
+{"ts": 1783940503461247414, "iso_kst": "2026-07-13 20:01:43", "line": "[2026-07-13 11:01:42] [LOG] Player B joined the server."}
+{"ts": 1783940503527680864, "iso_kst": "2026-07-13 20:01:43", "line": "Player B has joined"}
+{"ts": 1783940525442225427, "iso_kst": "2026-07-13 20:02:05", "line": "[2026-07-13 11:01:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783940645442727310, "iso_kst": "2026-07-13 20:04:05", "line": "[2026-07-13 11:03:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783940765427221408, "iso_kst": "2026-07-13 20:06:05", "line": "[2026-07-13 11:05:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783940884045230320, "iso_kst": "2026-07-13 20:08:04", "line": "[2026-07-13 11:07:58] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783941000091364438, "iso_kst": "2026-07-13 20:10:00", "line": "[2026-07-13 11:09:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783941004756887073, "iso_kst": "2026-07-13 20:10:04", "line": "time=\"2026-07-13T11:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (25h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783941125428712231, "iso_kst": "2026-07-13 20:12:05", "line": "[2026-07-13 11:11:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783941245440312003, "iso_kst": "2026-07-13 20:14:05", "line": "[2026-07-13 11:13:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783941365437272285, "iso_kst": "2026-07-13 20:16:05", "line": "[2026-07-13 11:15:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783941485431888884, "iso_kst": "2026-07-13 20:18:05", "line": "[2026-07-13 11:17:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783941600075891655, "iso_kst": "2026-07-13 20:20:00", "line": "[2026-07-13 11:19:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783941602389582683, "iso_kst": "2026-07-13 20:20:02", "line": "time=\"2026-07-13T11:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (25h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783941725438304735, "iso_kst": "2026-07-13 20:22:05", "line": "[2026-07-13 11:21:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783941845429938741, "iso_kst": "2026-07-13 20:24:05", "line": "[2026-07-13 11:23:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783941965441941881, "iso_kst": "2026-07-13 20:26:05", "line": "[2026-07-13 11:25:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783942085435074786, "iso_kst": "2026-07-13 20:28:05", "line": "[2026-07-13 11:27:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783942200000489073, "iso_kst": "2026-07-13 20:30:00", "line": "[2026-07-13 11:29:54] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783942204274342649, "iso_kst": "2026-07-13 20:30:04", "line": "time=\"2026-07-13T11:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (26h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783942325438584311, "iso_kst": "2026-07-13 20:32:05", "line": "[2026-07-13 11:31:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783942445448921826, "iso_kst": "2026-07-13 20:34:05", "line": "[2026-07-13 11:33:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783942565445184130, "iso_kst": "2026-07-13 20:36:05", "line": "[2026-07-13 11:35:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783942685438619357, "iso_kst": "2026-07-13 20:38:05", "line": "[2026-07-13 11:37:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783942800091669348, "iso_kst": "2026-07-13 20:40:00", "line": "[2026-07-13 11:39:51] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783942801553184925, "iso_kst": "2026-07-13 20:40:01", "line": "time=\"2026-07-13T11:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (26h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783942922544151539, "iso_kst": "2026-07-13 20:42:02", "line": "[2026-07-13 11:41:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783942922951557770, "iso_kst": "2026-07-13 20:42:02", "line": "[2026-07-13 11:42:02] [LOG] Player D <ip> connected the server."}
+{"ts": 1783942933074365864, "iso_kst": "2026-07-13 20:42:13", "line": "[2026-07-13 11:42:08] [LOG] Player D joined the server."}
+{"ts": 1783942933141988949, "iso_kst": "2026-07-13 20:42:13", "line": "Player D has joined"}
+{"ts": 1783943045444187891, "iso_kst": "2026-07-13 20:44:05", "line": "[2026-07-13 11:43:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783943165446803082, "iso_kst": "2026-07-13 20:46:05", "line": "[2026-07-13 11:45:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783943285441173417, "iso_kst": "2026-07-13 20:48:05", "line": "[2026-07-13 11:47:52] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783943400099650905, "iso_kst": "2026-07-13 20:50:00", "line": "[2026-07-13 11:49:53] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783943403883497130, "iso_kst": "2026-07-13 20:50:03", "line": "time=\"2026-07-13T11:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (26h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783943525441495594, "iso_kst": "2026-07-13 20:52:05", "line": "[2026-07-13 11:51:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783943645445986333, "iso_kst": "2026-07-13 20:54:05", "line": "[2026-07-13 11:53:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783943765446463582, "iso_kst": "2026-07-13 20:56:05", "line": "[2026-07-13 11:55:54] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783943885445222206, "iso_kst": "2026-07-13 20:58:05", "line": "[2026-07-13 11:57:50] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783944000000524029, "iso_kst": "2026-07-13 21:00:00", "line": "[2026-07-13 11:59:52] [LOG] REST accessed endpoint /v1/api/players OK (x3)"}
+{"ts": 1783944002432098784, "iso_kst": "2026-07-13 21:00:02", "line": "time=\"2026-07-13T12:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (26h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783944125441859805, "iso_kst": "2026-07-13 21:02:05", "line": "[2026-07-13 12:01:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783944245439469488, "iso_kst": "2026-07-13 21:04:05", "line": "[2026-07-13 12:03:55] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783944365447397868, "iso_kst": "2026-07-13 21:06:05", "line": "[2026-07-13 12:05:51] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783944485442241052, "iso_kst": "2026-07-13 21:08:05", "line": "[2026-07-13 12:07:53] [LOG] REST accessed endpoint /v1/api/players OK (x4)"}
+{"ts": 1783944604951201863, "iso_kst": "2026-07-13 21:10:04", "line": "time=\"2026-07-13T12:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (26h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783945203438978916, "iso_kst": "2026-07-13 21:20:03", "line": "time=\"2026-07-13T12:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (26h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783945801963012762, "iso_kst": "2026-07-13 21:30:01", "line": "time=\"2026-07-13T12:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (27h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783946401003230992, "iso_kst": "2026-07-13 21:40:01", "line": "time=\"2026-07-13T12:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (27h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783947004584857260, "iso_kst": "2026-07-13 21:50:04", "line": "time=\"2026-07-13T12:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (27h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783947602428036295, "iso_kst": "2026-07-13 22:00:02", "line": "time=\"2026-07-13T13:00:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (27h30m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783948200129181534, "iso_kst": "2026-07-13 22:10:00", "line": "time=\"2026-07-13T13:10:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (27h40m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783948803548761419, "iso_kst": "2026-07-13 22:20:03", "line": "time=\"2026-07-13T13:20:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (27h50m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783949401938020606, "iso_kst": "2026-07-13 22:30:01", "line": "time=\"2026-07-13T13:30:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (28h0m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783950004401490953, "iso_kst": "2026-07-13 22:40:04", "line": "time=\"2026-07-13T13:40:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (28h10m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
+{"ts": 1783950379793219338, "iso_kst": "2026-07-13 22:46:19", "line": "[2026-07-13 13:46:19] [LOG] Player D left the server."}
+{"ts": 1783950379911096521, "iso_kst": "2026-07-13 22:46:19", "line": "Player D has left"}
+{"ts": 1783950430478479425, "iso_kst": "2026-07-13 22:47:10", "line": "[2026-07-13 13:47:07] [LOG] Player B left the server."}
+{"ts": 1783950430545862700, "iso_kst": "2026-07-13 22:47:10", "line": "Player B has left"}
+{"ts": 1783950602428686546, "iso_kst": "2026-07-13 22:50:02", "line": "time=\"2026-07-13T13:50:00Z\" level=warning msg=\"not starting: job is still running since 2026-07-12 09:30:00 +0000 UTC (28h20m0s elapsed)\" iteration=112 job.command=\"bash /usr/local/bin/backup\" job.position=0 job.schedule=\"*/10 * * * *\""}
