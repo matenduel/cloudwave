@@ -1,0 +1,24 @@
+apiVersion: 1
+datasources:
+  - name: Tempo
+    type: tempo
+    access: proxy
+    uid: tempo
+    url: http://tempo:3200
+    jsonData:
+      # Tempo Explore 에서 최근 트레이스 검색이 바로 되게
+      nodeGraph:
+        enabled: true
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    uid: prometheus
+    url: http://prometheus:9090
+    isDefault: true
+    jsonData:
+      timeInterval: 60s
+  - name: Loki
+    type: loki
+    access: proxy
+    uid: loki
+    url: http://loki:3100

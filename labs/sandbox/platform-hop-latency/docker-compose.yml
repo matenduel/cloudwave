@@ -1,0 +1,108 @@
+name: platform-hop-latency
+
+# 자기조사 샌드박스 — 학습용 합성 데이터로 "메시-홉 지연" 상황을 재현.
+#   docker compose up   한 줄로 Tempo(합성 트레이스 주입)·Prometheus(백필)·
+#   Loki(주입)·Grafana 가 데이터 실린 채 뜬다.
+#   Grafana http://localhost:3000 (익명 로그인) → Explore 에서 TraceQL·PromQL·LogQL 직접 조회.
+# 데이터는 실측이 아니라 합성이다. 다만 학생은 진짜 Tempo 에 진짜 TraceQL 로 조회한다.
+# 타임스탬프는 up 시각 기준 최근 ~35분에 분산 → 항상 "최근 1시간"으로 조회된다.
+
+services:
+  # --- Tempo: OTLP receiver + local storage ---
+  tempo:
+    image: grafana/tempo:2.6.1
+    command: ["-config.file=/etc/tempo/tempo.yml"]
+    volumes:
+      - ./tempo/tempo.yml:/etc/tempo/tempo.yml:ro
+      - tempodata:/var/tempo
+    ports:
+      - "3200:3200"   # Tempo API/조회
+      - "4318:4318"   # OTLP HTTP
+      - "4317:4317"   # OTLP gRPC
+
+  # 합성 트레이스를 OTLP JSON 으로 직접 구성해 Tempo 에 1회 주입 후 종료.
+  trace-injector:
+    image: python:3.12-slim
+    depends_on:
+      - tempo
+    volumes:
+      - ./gen/inject_traces.py:/inject_traces.py:ro
+    command: ["python", "/inject_traces.py"]
+    restart: "no"
+
+  # --- Prometheus: 합성 메트릭 생성 → OpenMetrics 백필 ---
+  metrics-gen:
+    image: python:3.12-slim
+    volumes:
+      - ./gen/gen_metrics.py:/gen_metrics.py:ro
+      - promsrc:/out
+    command: ["python", "/gen_metrics.py"]
+    restart: "no"
+
+  prometheus-init:
+    image: prom/prometheus:latest
+    depends_on:
+      metrics-gen:
+        condition: service_completed_successfully
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >
+        rm -rf /prometheus/* &&
+        promtool tsdb create-blocks-from openmetrics /out/metrics.txt /prometheus &&
+        echo INIT_DONE
+    volumes:
+      - promsrc:/out:ro
+      - promdata:/prometheus
+
+  prometheus:
+    image: prom/prometheus:latest
+    depends_on:
+      prometheus-init:
+        condition: service_completed_successfully
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=10y
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - promdata:/prometheus
+    ports: ["9090:9090"]
+
+  # --- Loki: 최소 로그(200 만) 주입 ---
+  loki:
+    image: grafana/loki:3.1.1
+    command: -config.file=/etc/loki/loki-config.yml
+    volumes:
+      - ./loki/loki-config.yml:/etc/loki/loki-config.yml:ro
+    ports: ["3100:3100"]
+
+  loki-loader:
+    image: python:3.12-slim
+    depends_on:
+      - loki
+    volumes:
+      - ./gen/load_loki.py:/load_loki.py:ro
+    command: ["python", "/load_loki.py"]
+    restart: "no"
+
+  # --- Grafana: Tempo·Prometheus·Loki 3종 데이터소스, 익명, 대시보드 없음 ---
+  grafana:
+    image: grafana/grafana:latest
+    depends_on:
+      - tempo
+      - prometheus
+      - loki
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_ANALYTICS_REPORTING_ENABLED=false
+      - GF_FEATURE_TOGGLES_ENABLE=traceqlEditor
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    ports: ["3000:3000"]
+
+volumes:
+  tempodata:
+  promdata:
+  promsrc:

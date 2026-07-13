@@ -1,0 +1,41 @@
+# 자기조사 샌드박스 — Tempo (단일 바이너리, local storage). 합성 트레이스 조회용.
+# OTLP receiver: HTTP 4318 · gRPC 4317. 최근(주입 시각 기준) 트레이스를 TraceQL 로 조회.
+stream_over_http_enabled: true
+
+server:
+  http_listen_port: 3200
+  grpc_listen_port: 9095
+  log_level: warn
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        http:
+          endpoint: 0.0.0.0:4318
+        grpc:
+          endpoint: 0.0.0.0:4317
+
+ingester:
+  # 방금 주입한 트레이스가 빨리 조회 가능해지도록 짧게 flush
+  trace_idle_period: 5s
+  max_block_duration: 1m
+  complete_block_timeout: 1m
+
+querier:
+  max_concurrent_queries: 20
+
+compactor:
+  compaction:
+    block_retention: 336h   # 합성 데이터 보존 넉넉히(재현성)
+
+storage:
+  trace:
+    backend: local
+    wal:
+      path: /var/tempo/wal
+    local:
+      path: /var/tempo/blocks
+
+usage_report:
+  reporting_enabled: false
