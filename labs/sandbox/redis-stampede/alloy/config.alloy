@@ -1,0 +1,25 @@
+local.file_match "stampede_logs" {
+  path_targets = [
+    {
+      __path__ = "/var/log/stampede/app.jsonl",
+      job      = "app",
+    },
+    {
+      __path__ = "/var/log/stampede/backend.jsonl",
+      job      = "backend",
+    },
+  ]
+
+  sync_period = "1s"
+}
+
+loki.source.file "stampede_logs" {
+  targets    = local.file_match.stampede_logs.targets
+  forward_to = [loki.write.default.receiver]
+}
+
+loki.write "default" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}
