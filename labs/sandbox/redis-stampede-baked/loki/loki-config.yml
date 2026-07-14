@@ -1,0 +1,54 @@
+# 자기조사 샌드박스 — Loki (단일 바이너리, filesystem). 과거 로그 주입 허용.
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9096
+  log_level: warn
+
+common:
+  instance_addr: 127.0.0.1
+  path_prefix: /loki
+  storage:
+    filesystem:
+      chunks_directory: /loki/chunks
+      rules_directory: /loki/rules
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+schema_config:
+  configs:
+    - from: 2020-01-01
+      store: tsdb
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+limits_config:
+  # 얼린 스냅샷(과거 타임스탬프) 주입을 위해 오래된 샘플 거부 해제
+  reject_old_samples: false
+  reject_old_samples_max_age: 87600h
+  allow_structured_metadata: false
+  volume_enabled: true
+
+# 과거 타임스탬프 로그를 갓 주입해도 즉시 조회되게: querier가 나이 무관 ingester를 조회.
+querier:
+  query_ingesters_within: 87600h
+
+# 주입 직후 chunk를 빠르게 store로 flush → 재시작·장기 조회에도 안정.
+ingester:
+  chunk_idle_period: 30s
+  max_chunk_age: 1m
+
+query_range:
+  results_cache:
+    cache:
+      embedded_cache:
+        enabled: true
+
+analytics:
+  reporting_enabled: false
