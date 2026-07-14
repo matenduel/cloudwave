@@ -1,0 +1,33 @@
+local.file_match "app_logs" {
+  path_targets = [
+    {
+      "__path__" = "/var/log/kafka-lab/*.jsonl",
+    },
+  ]
+}
+
+loki.process "add_service_label" {
+  forward_to = [loki.write.local.receiver]
+
+  stage.regex {
+    source     = "filename"
+    expression = ".*/(?P<service>[^/]+)\\.jsonl$"
+  }
+
+  stage.labels {
+    values = {
+      service = "",
+    }
+  }
+}
+
+loki.source.file "app_logs" {
+  targets    = local.file_match.app_logs.targets
+  forward_to = [loki.process.add_service_label.receiver]
+}
+
+loki.write "local" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}

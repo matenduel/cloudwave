@@ -1,0 +1,73 @@
+name: kafka-iops-baked
+
+# 자기조사 샌드박스 — Kafka consumer lag/IOPS 사건의 얼린 실측 스냅샷.
+#   docker compose up   한 줄로 Prometheus(백필)·Loki(주입)·Grafana가 데이터 실린 채 뜬다.
+#   Grafana http://localhost:3000 (익명) → Explore에서 PromQL/LogQL 직접 조회.
+# 데이터 창: 2026-07-14 10:00~10:08 KST(폴트는 ~10:02부터). Grafana 범위를 2026-07-14 09:59~10:09 로.
+# 원본 라이브 재현 킷: ../kafka-iops/ (이 스냅샷은 그 킷을 실제로 돌려 캡처한 실측 데이터).
+
+services:
+  # OpenMetrics 텍스트 → Prometheus TSDB 블록으로 1회 백필(최초 up에서만).
+  prometheus-init:
+    image: prom/prometheus:latest
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >
+        if [ ! -f /prometheus/.loaded ]; then
+          rm -rf /prometheus/* &&
+          promtool tsdb create-blocks-from openmetrics /metrics.txt /prometheus &&
+          touch /prometheus/.loaded &&
+          echo INIT_DONE;
+        else echo ALREADY_LOADED; fi
+    volumes:
+      - ./prometheus/metrics_openmetrics.txt:/metrics.txt:ro
+      - promdata:/prometheus
+
+  prometheus:
+    image: prom/prometheus:latest
+    depends_on:
+      prometheus-init:
+        condition: service_completed_successfully
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=10y
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - promdata:/prometheus
+    ports: ["9090:9090"]
+
+  loki:
+    image: grafana/loki:3.1.1
+    command: -config.file=/etc/loki/loki-config.yml
+    volumes:
+      - ./loki/loki-config.yml:/etc/loki/loki-config.yml:ro
+    ports: ["3100:3100"]
+
+  # 얼린 로그 스냅샷을 Loki에 1회 주입 후 종료.
+  loki-loader:
+    image: python:3.12-slim
+    depends_on:
+      - loki
+    volumes:
+      - ./loki/load_loki.py:/load_loki.py:ro
+      - ./loki/logs.jsonl:/logs.jsonl:ro
+    command: ["python", "/load_loki.py"]
+    restart: "no"
+
+  grafana:
+    image: grafana/grafana:latest
+    depends_on:
+      - prometheus
+      - loki
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_ANALYTICS_REPORTING_ENABLED=false
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    ports: ["3000:3000"]
+
+volumes:
+  promdata:
