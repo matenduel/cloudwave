@@ -20,7 +20,8 @@ ingester:
   # 방금 주입한 트레이스가 빨리 조회 가능해지도록 짧게 flush
   trace_idle_period: 5s
   max_block_duration: 1m
-  complete_block_timeout: 1m
+  # 블록이 backend로 넘어간 뒤에도 ingester가 오래 서빙 → querier가 blocklist를 재스캔할 때까지 공백 없음
+  complete_block_timeout: 15m
 
 querier:
   max_concurrent_queries: 20
@@ -32,6 +33,9 @@ compactor:
 storage:
   trace:
     backend: local
+    # querier가 새 블록을 인식하는 주기(기본 5m). complete_block_timeout(블록 완성 1m)보다 커서
+    # 플러시 직후~재스캔 전 트레이스가 잠깐 안 보이는 공백이 생기므로 짧게 당긴다.
+    blocklist_poll: 30s
     wal:
       path: /var/tempo/wal
     local:
