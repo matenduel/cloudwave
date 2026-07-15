@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+scrape_configs:
+  - job_name: order-app
+    static_configs: [{targets: ["order-app:8080"], labels: {service: order-app}}]
+  - job_name: postgres-primary
+    static_configs: [{targets: ["postgres-exporter-primary:9187"], labels: {db_role: primary, node: pg-primary}}]
+  - job_name: postgres-replica
+    static_configs: [{targets: ["postgres-exporter-replica:9187"], labels: {db_role: replica, node: pg-replica}}]

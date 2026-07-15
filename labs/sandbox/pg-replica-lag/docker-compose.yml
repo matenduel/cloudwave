@@ -1,0 +1,145 @@
+name: pg-replica-lag
+
+services:
+  pg-primary:
+    image: postgres:17.5-bookworm
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: orders
+    command: ["postgres", "-c", "wal_level=replica", "-c", "max_wal_senders=10", "-c", "max_replication_slots=10", "-c", "wal_compression=off"]
+    volumes:
+      - primary_data:/var/lib/postgresql/data
+      - ./postgres/primary-init.sql:/docker-entrypoint-initdb.d/01-primary-init.sql:ro
+      - ./postgres/replication-hba.sh:/docker-entrypoint-initdb.d/02-replication-hba.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d orders"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+    networks: [db]
+
+  pg-replica:
+    image: postgres:17.5-bookworm
+    environment:
+      PGDATA: /var/lib/postgresql/data
+      PGPASSWORD: replica_secret
+    entrypoint: ["/bin/bash", "/scripts/replica-entrypoint.sh"]
+    command: ["postgres", "-c", "hot_standby=on", "-c", "hot_standby_feedback=on"]
+    volumes:
+      - replica_data:/var/lib/postgresql/data
+      - ./postgres/replica-entrypoint.sh:/scripts/replica-entrypoint.sh:ro
+    depends_on:
+      pg-primary:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d orders && test -f $$PGDATA/standby.signal"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+    networks: [db, control]
+
+  order-app:
+    build: ./app
+    environment:
+      PRIMARY_DSN: postgresql://app:app_secret@pg-primary:5432/orders
+      REPLICA_DSN: postgresql://app:app_secret@pg-replica:5432/orders
+      LOG_PATH: /logs/app.jsonl
+      READ_AFTER_WRITE_SETTLE_MS: "40"
+    volumes: [app_logs:/logs]
+    depends_on:
+      pg-primary: {condition: service_healthy}
+      pg-replica: {condition: service_healthy}
+    ports: ["18090:8080"]
+    networks: [db, app, observability]
+
+  replica-controller:
+    build: ./controller
+    environment:
+      PRIMARY_DSN: postgresql://controller:controller_secret@pg-primary:5432/orders
+      REPLICA_DSN: postgresql://controller:controller_secret@pg-replica:5432/orders
+      LOG_PATH: /logs/controller.jsonl
+      PAUSE_AFTER_SECONDS: "120"
+      RESUME_AFTER_SECONDS: "240"
+    volumes: [app_logs:/logs]
+    depends_on:
+      pg-replica: {condition: service_healthy}
+    networks: [db, control, observability]
+
+  postgres-exporter-primary:
+    image: quay.io/prometheuscommunity/postgres-exporter:v0.20.1
+    environment:
+      DATA_SOURCE_NAME: postgresql://postgres:postgres@pg-primary:5432/orders?sslmode=disable
+    depends_on:
+      pg-primary: {condition: service_healthy}
+    networks: [db, observability]
+
+  postgres-exporter-replica:
+    image: quay.io/prometheuscommunity/postgres-exporter:v0.20.1
+    environment:
+      DATA_SOURCE_NAME: postgresql://postgres:postgres@pg-replica:5432/orders?sslmode=disable
+    depends_on:
+      pg-replica: {condition: service_healthy}
+    networks: [db, observability]
+
+  prometheus:
+    image: prom/prometheus:v3.4.1
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus"]
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports: ["19090:9090"]
+    networks: [observability]
+
+  loki:
+    image: grafana/loki:3.1.1
+    command: -config.file=/etc/loki/loki-config.yml
+    volumes:
+      - ./loki/loki-config.yml:/etc/loki/loki-config.yml:ro
+      - loki_data:/loki
+    ports: ["13100:3100"]
+    networks: [observability]
+
+  fluent-bit:
+    image: cr.fluentbit.io/fluent/fluent-bit:3.1.9
+    command: ["/fluent-bit/bin/fluent-bit", "-c", "/fluent-bit/etc/fluent-bit.conf"]
+    volumes:
+      - ./fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - ./fluent-bit/parsers.conf:/fluent-bit/etc/parsers.conf:ro
+      - app_logs:/logs:ro
+    depends_on: [loki]
+    networks: [observability]
+
+  grafana:
+    image: grafana/grafana:11.6.0
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    ports: ["13000:3000"]
+    depends_on: [prometheus, loki]
+    networks: [observability]
+
+  k6:
+    image: grafana/k6:0.57.0
+    profiles: [load]
+    environment: {TARGET: http://order-app:8080}
+    volumes: ["./k6:/scripts:ro"]
+    depends_on: [order-app]
+    command: ["run", "/scripts/read-after-write.js"]
+    networks: [app]
+
+networks:
+  db: {internal: true}
+  app: {internal: true}
+  observability: {}
+  control: {internal: true}
+
+volumes:
+  primary_data:
+  replica_data:
+  app_logs:
+  prometheus_data:
+  loki_data:
