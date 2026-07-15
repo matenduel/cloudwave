@@ -1,0 +1,7 @@
+# Windows 체크아웃이 OpenMetrics/Loki 입력을 망가뜨리지 않도록 LF 고정
+*.jsonl text eol=lf
+*.txt   text eol=lf
+*.py    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.sh    text eol=lf

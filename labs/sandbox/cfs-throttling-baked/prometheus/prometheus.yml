@@ -1,0 +1,4 @@
+# 데이터는 prometheus-init이 OpenMetrics로 한 번만 백필한다.
+global:
+  scrape_interval: 2s
+  evaluation_interval: 2s
