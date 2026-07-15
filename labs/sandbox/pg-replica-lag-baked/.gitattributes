@@ -1,0 +1,2 @@
+prometheus/metrics_openmetrics.txt -diff
+loki/logs.jsonl -diff

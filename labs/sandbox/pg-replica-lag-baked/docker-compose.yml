@@ -1,0 +1,54 @@
+name: pg-replica-lag-baked
+
+# Fixed observation window: 2026-07-14 10:00~10:07 KST. It is a real run of
+# ../pg-replica-lag, shifted as one timeline (including JSON's internal ts).
+services:
+  prometheus-init:
+    image: prom/prometheus:v3.4.1
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >
+        if [ ! -f /prometheus/.loaded ]; then rm -rf /prometheus/* &&
+        promtool tsdb create-blocks-from openmetrics /metrics.txt /prometheus &&
+        touch /prometheus/.loaded && echo INIT_DONE; else echo ALREADY_LOADED; fi
+    volumes:
+      - ./prometheus/metrics_openmetrics.txt:/metrics.txt:ro
+      - promdata:/prometheus
+
+  prometheus:
+    image: prom/prometheus:v3.4.1
+    depends_on:
+      prometheus-init: {condition: service_completed_successfully}
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus", "--storage.tsdb.retention.time=10y"]
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - promdata:/prometheus
+    ports: ["19091:9090"]
+
+  loki:
+    image: grafana/loki:3.1.1
+    command: -config.file=/etc/loki/loki-config.yml
+    volumes: ["./loki/loki-config.yml:/etc/loki/loki-config.yml:ro"]
+    ports: ["13101:3100"]
+
+  loki-loader:
+    image: python:3.12-slim
+    depends_on: [loki]
+    volumes:
+      - ./loki/load_loki.py:/load_loki.py:ro
+      - ./loki/logs.jsonl:/logs.jsonl:ro
+    command: ["python", "/load_loki.py"]
+    restart: "no"
+
+  grafana:
+    image: grafana/grafana:11.6.0
+    depends_on: [prometheus, loki]
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+    volumes: ["./grafana/provisioning:/etc/grafana/provisioning:ro"]
+    ports: ["13001:3000"]
+
+volumes: {promdata: {}}
