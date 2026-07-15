@@ -3,7 +3,7 @@ name: redis-stampede-baked
 # 자기조사 샌드박스 — 실제 재현 실행에서 얼린 관측 스냅샷을 학생이 직접 조회.
 #   docker compose up   한 줄로 Prometheus(백필)·Loki(주입)·Grafana가 데이터 실린 채 뜬다.
 #   Grafana http://localhost:3000 (익명 로그인) → Explore에서 PromQL/LogQL 직접 조회.
-# 데이터 창: 2026-07-14 15:00~15:02 KST(사건은 이 구간). Grafana 시간 범위를 2026-07-14 14:59~15:03 으로 맞춘다.
+# 데이터 창: 2026-07-14 09:00~09:02 KST(사건은 이 구간). Grafana 시간 범위를 2026-07-14 08:59~09:03 으로 맞춘다.
 # 원본 라이브 재현 킷: ../redis-stampede/ (이 스냅샷은 그 킷을 실제로 돌려 캡처한 실측 데이터).
 
 services:
