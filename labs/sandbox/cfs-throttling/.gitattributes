@@ -1,0 +1,6 @@
+# Docker/Prometheus/Loki 입력 파일은 플랫폼과 무관하게 LF를 유지한다.
+*.go   text eol=lf
+*.js   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.sh   text eol=lf
