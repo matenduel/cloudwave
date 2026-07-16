@@ -17,6 +17,10 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
+# eks-v21 실습 tfvars 2벌: 비밀값 없이 인스턴스 타입 등 환경별 값만 담아 커밋 대상으로 둡니다.
+!terraform/eks-v21/weekend.tfvars
+!terraform/eks-v21/student.tfvars
+
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
 override.tf
