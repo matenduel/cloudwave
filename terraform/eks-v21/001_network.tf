@@ -26,9 +26,14 @@ resource "aws_vpc" "eks" {
 ## Public Subnet 2개 (AZ 2곳)
 #########################################################################################################
 resource "aws_subnet" "public_a" {
-  vpc_id                  = aws_vpc.eks.id
-  cidr_block              = "10.0.1.0/24"
-  availability_zone       = local.azs[0]
+  vpc_id     = aws_vpc.eks.id
+  cidr_block = "10.0.1.0/24"
+
+  availability_zone = local.azs[0]
+
+  # NAT 게이트웨이가 없는 구성이라, 노드가 이미지를 내려받는 등 인터넷으로 나가려면
+  # 퍼블릭 IP가 필요합니다. 노드로 들어오는 트래픽은 보안 그룹이 막고 있으므로
+  # (002_eks.tf의 보안 그룹 주석 참고) 퍼블릭 IP가 곧 개방을 뜻하지는 않습니다.
   map_public_ip_on_launch = true
 
   tags = {

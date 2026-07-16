@@ -10,10 +10,17 @@ module "eks" {
   name               = var.cluster_name
   kubernetes_version = var.kubernetes_version
 
-  # 노트북의 kubectl에서 API 서버로 바로 접근하기 위한 설정.
-  # 접근 자체는 열려 있어도 인증 없이는 아무것도 할 수 없고, 클러스터는 실습 후 destroy로 지웁니다.
-  # (실무에서는 endpoint_public_access_cidrs로 허용 대역을 좁히거나 프라이빗 엔드포인트를 씁니다.)
-  endpoint_public_access = true
+  # API 서버 퍼블릭 엔드포인트: 노트북의 kubectl이 인터넷을 거쳐 API 서버로 바로 접근합니다.
+  # "열려 있다"는 문이 보인다는 뜻이지 아무나 들어온다는 뜻이 아닙니다. 모든 요청은 인증을
+  # 통과해야 합니다(사람의 kubectl 접근은 IAM으로 인증됩니다). 그래도 문을 보여 줄 대역은
+  # 좁힐수록 좋으므로 허용 CIDR을 변수로 뺐습니다
+  # (기본값과 좁히는 법은 variables.tf의 public_access_cidrs 주석 참고).
+  # 실무 정석은 퍼블릭 엔드포인트를 끈 프라이빗 전용 + VPN이지만, 접속 환경이 제각각인
+  # 실습에서는 퍼블릭 + CIDR 제한이 현실적인 절충입니다.
+  # 노드는 VPC 안의 프라이빗 엔드포인트로 API 서버와 통신하므로(모듈 기본값
+  # endpoint_private_access = true), 퍼블릭 CIDR을 좁혀도 노드 통신은 끊기지 않습니다.
+  endpoint_public_access       = true
+  endpoint_public_access_cidrs = var.public_access_cidrs
 
   # apply를 실행한 자격 증명(= 본인)에게 클러스터 관리자 권한을 부여
   enable_cluster_creator_admin_permissions = true
@@ -58,6 +65,31 @@ module "eks" {
       }]
     }
   }
+
+  #######################################################################################################
+  ## 보안 그룹
+  ## plan 목록에 보이던 security_group들은 모듈이 자동으로 만드는 두 개입니다.
+  ##  - cluster SG: 컨트롤 플레인(API 서버)의 네트워크 인터페이스에 붙습니다.
+  ##    노드에서 오는 443만 받습니다.
+  ##  - node SG: 모든 노드에 붙습니다. 인바운드는 노드끼리의 통신과, 컨트롤 플레인에서
+  ##    노드로 가는 통신(kubelet 10250, webhook 등)만 허용합니다. 인터넷에서 노드로
+  ##    들어오는 인바운드는 기본적으로 하나도 없습니다. (아웃바운드는 전부 허용입니다.
+  ##    이 외에 EKS 서비스 자체가 만드는 기본(primary) cluster SG도 하나 더 생깁니다.)
+  ## 인바운드 기준으로 "필요한 통신만 열린 상태"가 기본값이므로 여기서는 아무것도 더 적지 않습니다.
+  ##
+  ## 추가 인바운드가 필요해지면(예: NodePort로 데모 서비스를 잠깐 열어 볼 때) 노드 SG에
+  ## 규칙을 더합니다. 기본은 닫아 두고, 필요할 때만 아래 주석을 풀어 내 IP로 한정해 엽니다.
+  # node_security_group_additional_rules = {
+  #   nodeport_demo = {
+  #     description = "NodePort 데모용 임시 개방"
+  #     protocol    = "tcp"
+  #     from_port   = 30000
+  #     to_port     = 32767
+  #     type        = "ingress"
+  #     cidr_blocks = ["x.x.x.x/32"] # curl ifconfig.me 로 확인한 내 IP
+  #   }
+  # }
+  #######################################################################################################
 
   #######################################################################################################
   ## Managed Node Group
