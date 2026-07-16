@@ -6,8 +6,10 @@
 ## 실무에서는 노드를 프라이빗 서브넷 + NAT 뒤에 두는 구성이 일반적입니다.
 #########################################################################################################
 
-data "aws_availability_zones" "available" {
-  state = "available"
+# 가용 영역은 a·c로 고정합니다. 서울 리전(ap-northeast-2)에서 b는 일부 인스턴스 타입을
+# 지원하지 않아, 두 AZ로 고가용성을 잡을 때는 a·c 조합이 범용적입니다.
+locals {
+  azs = ["${var.region}a", "${var.region}c"]
 }
 
 resource "aws_vpc" "eks" {
@@ -26,7 +28,7 @@ resource "aws_vpc" "eks" {
 resource "aws_subnet" "public_a" {
   vpc_id                  = aws_vpc.eks.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = data.aws_availability_zones.available.names[0]
+  availability_zone       = local.azs[0]
   map_public_ip_on_launch = true
 
   tags = {
@@ -40,7 +42,7 @@ resource "aws_subnet" "public_a" {
 resource "aws_subnet" "public_b" {
   vpc_id                  = aws_vpc.eks.id
   cidr_block              = "10.0.2.0/24"
-  availability_zone       = data.aws_availability_zones.available.names[1]
+  availability_zone       = local.azs[1]
   map_public_ip_on_launch = true
 
   tags = {
