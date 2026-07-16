@@ -64,13 +64,13 @@ module "eks" {
   #######################################################################################################
   eks_managed_node_groups = {
     default = {
-      instance_types = ["t3.medium"]
+      instance_types = [var.node_instance_type]
 
-      # 노드는 최초 생성 시 desired_size인 2대로 만들어집니다. max_size는 자동 확장이 아니라
+      # 노드는 최초 생성 시 node_count대로 만들어집니다. max_size는 자동 확장이 아니라
       # 수동 조정이나 autoscaler를 붙였을 때 허용되는 상한입니다.
-      min_size     = 2
-      max_size     = 3
-      desired_size = 2
+      min_size     = var.node_count
+      max_size     = var.node_count + 1
+      desired_size = var.node_count
     }
   }
 }
