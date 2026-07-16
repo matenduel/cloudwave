@@ -1,0 +1,36 @@
+# webapp 차트 기본값.
+# helm install/upgrade에서 -f 파일이나 --set으로 덮어쓸 수 있습니다.
+
+# 파드 복제본 수 — upgrade 데모에서 이 값을 바꿔 봅니다.
+replicaCount: 2
+
+image:
+  # nginx 공식 이미지(Docker Hub library/nginx)를 씁니다.
+  repository: nginx
+  # 비워두면 Chart.yaml의 appVersion(1.29.8-alpine)이 태그로 쓰입니다.
+  # upgrade 데모에서 --set image.tag=... 로 바꿔 봅니다.
+  tag: ""
+  pullPolicy: IfNotPresent
+
+service:
+  # ALB가 파드로 직접 트래픽을 보내므로(target-type: ip) ClusterIP면 충분합니다.
+  type: ClusterIP
+  port: 80
+
+ingress:
+  # true면 Ingress 리소스를 만들고, AWS Load Balancer Controller가 이를 보고 ALB를 만듭니다.
+  enabled: true
+  className: alb
+  annotations:
+    # internet-facing: 인터넷에서 접근 가능한 공개 ALB (기본값 internal은 VPC 내부 전용)
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    # ip: ALB가 노드포트를 거치지 않고 파드 IP로 직접 전달 (EKS 권장)
+    alb.ingress.kubernetes.io/target-type: ip
+
+# 실습용 최소 요청/제한 — 노드 스케줄링 감각을 위해 명시합니다.
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    memory: 128Mi
