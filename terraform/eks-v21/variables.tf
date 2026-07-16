@@ -51,4 +51,16 @@ variable "public_access_cidrs" {
   # 전체 개방이어도 인증 없이는 명령이 통하지 않지만, API 서버라는 문을
   # 인터넷 전체에 보여 줄 이유가 없습니다. 접근 대역은 좁힐수록 좋습니다.
   default = ["0.0.0.0/0"]
+
+  # 왜 검증이 필요한가: 빈 리스트를 주면 plan은 통과하지만 EKS API 서버가 아무 CIDR도
+  # 허용하지 않는 상태가 되어 apply 뒤에야 kubectl이 막힙니다. 오타난 CIDR(자릿수 오류,
+  # IPv6 표기 등)도 마찬가지로 plan에서는 걸러지지 않고 EKS API 단계나 그 이후에야
+  # 드러납니다. 45명이 각자 이 값을 손으로 바꿔 쓰는 실습이라 오타 가능성이 높으므로,
+  # 여기서 미리 막아 실패 시점을 plan 이전으로 당깁니다.
+  validation {
+    condition = length(var.public_access_cidrs) > 0 && alltrue([
+      for cidr in var.public_access_cidrs : can(cidrhost(cidr, 0))
+    ])
+    error_message = "public_access_cidrs는 비어 있으면 안 되고, 각 값은 유효한 CIDR 표기여야 합니다(예: \"x.x.x.x/32\")."
+  }
 }
