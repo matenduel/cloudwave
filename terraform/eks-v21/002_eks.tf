@@ -98,6 +98,18 @@ module "eks" {
     default = {
       instance_types = [var.node_instance_type]
 
+      # (권한 체험 실습 지원 — 004_s3_perm_demo.tf) 파드가 노드 역할을 물려받으려면 노드의
+      # 메타데이터 서비스(IMDS)에 닿아야 하는데, 모듈 기본값은 응답 홉 제한이 1이라 노드 자신만
+      # 닿고 한 홉 건너에 있는 파드는 응답을 받지 못합니다. 사실 그쪽이 보안 권장값입니다 —
+      # 파드가 노드 역할을 쓰지 못하게 막는 설정. 이 실습은 반대로 "노드 역할이 노드 위 모든
+      # 파드에 새는 것"을 눈으로 보는 게 목적이라, 홉 제한을 2로 늘려 일부러 그 통로를 엽니다.
+      # (홉 제한이 1이면 체험 1막의 파드가 자격 증명을 못 얻어 성공 대신 credential 오류가 납니다.)
+      metadata_options = {
+        http_endpoint               = "enabled"
+        http_tokens                 = "required"
+        http_put_response_hop_limit = 2
+      }
+
       # 노드는 최초 생성 시 node_count대로 만들어집니다. max_size는 자동 확장이 아니라
       # 수동 조정이나 autoscaler를 붙였을 때 허용되는 상한입니다.
       min_size     = var.node_count
