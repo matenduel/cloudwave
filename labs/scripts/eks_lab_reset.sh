@@ -10,18 +10,23 @@
 ##   의존 순서대로 지워, 수동 콘솔 정리 없이 "깨끗한 재시작" 상태를 만듭니다.
 ##
 ## 사용법:
-##   bash eks_lab_reset.sh <cluster_name>                     # 기본값: 지울 대상 목록만 출력(dry-run)
-##   bash eks_lab_reset.sh <cluster_name> --yes               # 실제 삭제
-##   bash eks_lab_reset.sh <cluster_name> --yes --reset-local # 삭제 + 로컬 tfstate/.terraform 초기화
+##   bash eks_lab_reset.sh <cluster_name>                        # 기본값: 지울 대상 목록만 출력(dry-run)
+##   bash eks_lab_reset.sh <cluster_name> --delete               # 실제 삭제 (목록·계정 확인 후
+##                                                               #  클러스터 이름 재입력해야 진행)
+##   bash eks_lab_reset.sh <cluster_name> --delete --reset-local # 삭제 + 로컬 tfstate/.terraform 초기화
 ##
 ## 옵션:
-##   --yes            실제로 삭제합니다. 없으면 목록만 보여 줍니다.
+##   --delete         실제로 삭제합니다. 삭제 직전에 대상 전체 목록·개수·계정을 다시 보여 주고,
+##                    클러스터 이름을 그대로 재입력해야만 진행합니다(반사적 엔터·y 복붙 방지).
 ##   --reset-local    terraform 로컬 상태(tfstate·백업·.terraform/·lock)를 제거합니다.
 ##                    state 파일은 tfstate-backup-<시각>/ 으로 옮겨 두므로 복구 가능합니다.
 ##   --tf-dir <경로>  --reset-local이 정리할 terraform 디렉토리 (기본: 현재 디렉토리)
 ##   --profile <이름> AWS CLI 프로필 (기본: AWS_PROFILE 환경변수 또는 기본 자격 증명)
 ##   --region <리전>  AWS 리전 (기본: AWS_REGION > AWS_DEFAULT_REGION > ap-northeast-2)
 ##   --skip-tf-check  시작 시 "terraform destroy 먼저" 리마인드를 생략합니다.
+##   --yes            [강사·자동화 전용 — 학생 사용 금지] 이름 재입력 확인 없이 즉시 삭제합니다.
+##                    CI 등 비대화형 자동화를 위한 플래그입니다. 교재·FAQ에는 이 플래그를
+##                    노출하지 않습니다 — 학생 표준 경로는 --delete의 이름 재입력 확인입니다.
 ##
 ## 필요 도구: bash, aws CLI v2 (jq 불필요 — --query만 사용)
 ##
@@ -68,7 +73,8 @@ set -uo pipefail
 ## 인자 파싱
 #########################################################################################################
 CLUSTER_NAME=""
-ASSUME_YES=false
+DELETE_MODE=false   # --delete: 이름 재입력 확인을 거쳐 삭제 (학생 표준 경로)
+ASSUME_YES=false    # --yes: 확인 없이 삭제 (강사·자동화 전용)
 RESET_LOCAL=false
 SKIP_TF_CHECK=false
 TF_DIR="$PWD"
@@ -78,24 +84,27 @@ REGION="${AWS_REGION:-${AWS_DEFAULT_REGION:-ap-northeast-2}}"
 usage() {
   cat <<'EOF'
 사용법:
-  bash eks_lab_reset.sh <cluster_name>                     # dry-run: 지울 대상 목록만 출력
-  bash eks_lab_reset.sh <cluster_name> --yes               # 실제 삭제
-  bash eks_lab_reset.sh <cluster_name> --yes --reset-local # 삭제 + 로컬 tfstate/.terraform 초기화
+  bash eks_lab_reset.sh <cluster_name>                        # dry-run: 지울 대상 목록만 출력
+  bash eks_lab_reset.sh <cluster_name> --delete               # 실제 삭제(이름 재입력 확인 후 진행)
+  bash eks_lab_reset.sh <cluster_name> --delete --reset-local # 삭제 + 로컬 tfstate/.terraform 초기화
 
 옵션:
-  --yes            실제로 삭제합니다. 없으면 목록만 보여 줍니다.
+  --delete         실제로 삭제합니다. 삭제 직전에 대상 목록·개수·계정을 다시 보여 주고,
+                   클러스터 이름을 그대로 재입력해야만 진행합니다.
   --reset-local    terraform 로컬 상태(tfstate·백업·.terraform/·lock)를 제거합니다.
                    state 파일은 tfstate-backup-<시각>/ 으로 옮겨 두므로 복구 가능합니다.
   --tf-dir <경로>  --reset-local이 정리할 terraform 디렉토리 (기본: 현재 디렉토리)
   --profile <이름> AWS CLI 프로필 (기본: AWS_PROFILE 환경변수 또는 기본 자격 증명)
   --region <리전>  AWS 리전 (기본: AWS_REGION > AWS_DEFAULT_REGION > ap-northeast-2)
   --skip-tf-check  시작 시 "terraform destroy 먼저" 리마인드를 생략합니다.
+  --yes            [강사·자동화 전용 — 학생 사용 금지] 이름 재입력 확인 없이 즉시 삭제합니다.
 EOF
 }
 
 while [ $# -gt 0 ]; do
   case "$1" in
-    --yes)           ASSUME_YES=true ;;
+    --delete)        DELETE_MODE=true ;;
+    --yes)           DELETE_MODE=true; ASSUME_YES=true ;;
     --reset-local)   RESET_LOCAL=true ;;
     --skip-tf-check) SKIP_TF_CHECK=true ;;
     --tf-dir)        TF_DIR="${2:?--tf-dir 뒤에 경로가 필요합니다}"; shift ;;
@@ -109,7 +118,7 @@ while [ $# -gt 0 ]; do
 done
 
 if [ -z "$CLUSTER_NAME" ]; then
-  echo "사용법: bash eks_lab_reset.sh <cluster_name> [--yes] [--reset-local] ..." >&2
+  echo "사용법: bash eks_lab_reset.sh <cluster_name> [--delete] [--reset-local] ..." >&2
   echo "자세한 도움말: bash eks_lab_reset.sh --help" >&2
   exit 2
 fi
@@ -148,19 +157,28 @@ say "대상 클러스터 : $CLUSTER_NAME"
 say "리전          : $REGION"
 say "프로필        : ${PROFILE:-"(기본 자격 증명)"}"
 if [ "$ASSUME_YES" = true ]; then
-  say "모드          : 실제 삭제 (--yes)"
+  say "모드          : 실제 삭제 — 확인 생략 (--yes, 강사·자동화 전용)"
+elif [ "$DELETE_MODE" = true ]; then
+  say "모드          : 실제 삭제 (--delete) — 목록 확인 후 클러스터 이름 재입력이 필요합니다"
 else
   say "모드          : dry-run — 목록만 출력하고 아무것도 지우지 않습니다"
 fi
 
 # 자격 증명이 죽어 있으면 이후 모든 조회가 헛돕니다. 여기서 한 번에 걸러 냅니다.
-ACCOUNT_ID="$(awsx sts get-caller-identity --query Account 2>/dev/null | norm)"
+# 계정 ID와 함께 "누구로 로그인했는지"(ARN)도 받아 둡니다 — 삭제 확인 문구에 넣어,
+# 다른 계정·다른 프로필에 이 스크립트를 그대로 베껴 쓴 경우 스스로 알아차리게 합니다.
+CALLER_LINE="$(awsx sts get-caller-identity --query '[Account, Arn]' 2>/dev/null | norm | head -1)"
+ACCOUNT_ID=""; CALLER_ARN=""
+read -r ACCOUNT_ID CALLER_ARN <<EOF
+$CALLER_LINE
+EOF
 if [ -z "$ACCOUNT_ID" ]; then
   say ""
   say "[오류] AWS 자격 증명을 확인할 수 없습니다. 로그인(aws sso login 등) 후 다시 실행하십시오." >&2
   exit 1
 fi
 say "계정          : $ACCOUNT_ID"
+say "로그인 주체   : $CALLER_ARN"
 
 #########################################################################################################
 ## 1단계: 발견 (조회만 — 이 구간은 dry-run이든 아니든 아무것도 바꾸지 않습니다)
@@ -453,14 +471,14 @@ else
   say "이 계정·리전에서 '$CLUSTER_NAME' 실습의 흔적을 찾지 못했습니다. AWS 쪽은 이미 깨끗합니다."
 fi
 
-if [ "$ASSUME_YES" = false ]; then
+if [ "$DELETE_MODE" = false ]; then
   say ""
   if [ "$FOUND_COUNT" -gt 0 ]; then
     say "dry-run이므로 아무것도 지우지 않았습니다. 실제 삭제:"
-    say "  bash $0 $CLUSTER_NAME --yes"
+    say "  bash $0 $CLUSTER_NAME --delete"
   fi
   if [ "$RESET_LOCAL" = true ]; then
-    say "--reset-local도 --yes와 함께 실행해야 적용됩니다 (지금은 계획만 표시):"
+    say "--reset-local도 --delete와 함께 실행해야 적용됩니다 (지금은 계획만 표시):"
     say "  대상 디렉토리: $TF_DIR"
     for f in terraform.tfstate terraform.tfstate.backup .terraform.lock.hcl; do
       [ -e "$TF_DIR/$f" ] && say "  백업 후 제거 예정: $TF_DIR/$f"
@@ -471,7 +489,42 @@ if [ "$ASSUME_YES" = false ]; then
 fi
 
 #########################################################################################################
-## 2단계: 삭제 (--yes일 때만 도달)
+## 삭제 확인 게이트
+## 위에 방금 출력된 전체 목록·개수가 곧 "지워질 것 전부"입니다. 여기서 계정·주체까지 다시 보여 주고,
+## 클러스터 이름을 그대로 재입력해야만 진행합니다. 왜 y/N이 아니라 이름 재타이핑인가:
+## 반사적으로 y·엔터를 누르는 실수를 막고, 지우려는 대상이 무엇인지 한 번 더 눈으로
+## 확인시키기 위해서입니다(GitHub 저장소 삭제와 같은 패턴). --yes는 이 확인을 건너뜁니다
+## (비대화형 자동화 전용 — 학생 안내 문서에는 노출하지 않습니다).
+#########################################################################################################
+if [ "$FOUND_COUNT" -eq 0 ] && [ "$RESET_LOCAL" = false ]; then
+  say ""
+  say "지울 AWS 리소스가 없어 그대로 종료합니다. (로컬 상태 정리가 필요하면 --reset-local을 함께 쓰십시오.)"
+  exit 0
+fi
+say ""
+say "────────────────────────────────────────────────────────────────────"
+say " 지금 계정 $ACCOUNT_ID"
+say "   (로그인 주체: $CALLER_ARN)"
+say " 의 '$CLUSTER_NAME' 리소스 ${FOUND_COUNT}개(위 목록 전부)를 삭제합니다."
+[ "$RESET_LOCAL" = true ] && say " 로컬 terraform 상태($TF_DIR)도 함께 초기화합니다."
+say " 계정이나 목록이 예상과 다르면 지금 중단하십시오(Ctrl+C)."
+say "────────────────────────────────────────────────────────────────────"
+if [ "$ASSUME_YES" = false ]; then
+  if [ ! -t 0 ]; then
+    say "[중단] 비대화형 입력에서는 이름 재입력 확인을 받을 수 없습니다. 아무것도 지우지 않았습니다."
+    say "       (자동화 파이프라인이라면 --yes를 쓰되, 이는 강사·자동화 전용입니다.)"
+    exit 1
+  fi
+  printf '정말 삭제하려면 클러스터 이름(%s)을 그대로 입력하십시오: ' "$CLUSTER_NAME"
+  read -r CONFIRM_INPUT
+  if [ "$CONFIRM_INPUT" != "$CLUSTER_NAME" ]; then
+    say "[중단] 입력('$CONFIRM_INPUT')이 클러스터 이름과 일치하지 않습니다. 아무것도 지우지 않았습니다."
+    exit 1
+  fi
+fi
+
+#########################################################################################################
+## 2단계: 삭제 (확인 게이트를 통과했을 때만 도달)
 ##
 ## 순서가 곧 성공률입니다. AWS는 참조되는 리소스를 못 지우게 하므로,
 ## "만드는 쪽(컨트롤러)부터 멈추고, 쓰는 쪽에서 쓰이는 쪽으로" 지웁니다.
