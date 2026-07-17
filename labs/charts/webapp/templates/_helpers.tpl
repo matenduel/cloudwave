@@ -15,6 +15,22 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
+HTTP GET probe 한 벌을 렌더합니다. 전달받은 값 묶음(.Values.readinessProbe 등)에서
+path는 항상 쓰고, 타이밍 필드는 --set 등으로 실제 지정한 것만 내보냅니다.
+지정하지 않은 필드는 렌더되지 않아 쿠버네티스 기본값이 쓰입니다.
+*/}}
+{{- define "webapp.httpProbe" -}}
+httpGet:
+  path: {{ .path }}
+  port: http
+{{- range $k := list "initialDelaySeconds" "periodSeconds" "timeoutSeconds" "successThreshold" "failureThreshold" }}
+{{- if hasKey $ $k }}
+{{ $k }}: {{ index $ $k }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{/*
 셀렉터 외에 붙이는 공통 라벨(관리 도구 표시 등)입니다.
 */}}
 {{- define "webapp.labels" -}}
