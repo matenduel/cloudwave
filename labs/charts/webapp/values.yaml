@@ -5,12 +5,16 @@
 replicaCount: 2
 
 image:
-  # nginx 공식 이미지(Docker Hub library/nginx)를 씁니다.
-  repository: nginx
+  # 비특권 nginx 공식 이미지(Docker Hub nginxinc/nginx-unprivileged)를 씁니다.
+  # root 없이 8080 포트로 listen합니다(노드 SG가 저포트 노드 간 통신을 막으므로 80 대신 8080 사용).
+  repository: nginxinc/nginx-unprivileged
   # 비워두면 Chart.yaml의 appVersion(1.29.8-alpine)이 태그로 쓰입니다.
   # upgrade 데모에서 --set image.tag=... 로 바꿔 봅니다.
   tag: ""
   pullPolicy: IfNotPresent
+
+# 컨테이너가 listen하는 포트 — nginx-unprivileged의 기본 listen 포트(8080)와 맞춥니다.
+containerPort: 8080
 
 # 배포 전략 — 비워두면({}) 쿠버네티스 기본값(RollingUpdate, maxSurge 25% / maxUnavailable 25%)이 쓰입니다.
 # 배포 전략 실습에서 이렇게 바꿔 봅니다:
@@ -48,7 +52,8 @@ startupProbe:
 service:
   # ALB가 파드로 직접 트래픽을 보내므로(target-type: ip) ClusterIP면 충분합니다.
   type: ClusterIP
-  port: 80
+  # 컨테이너와 같은 8080으로 맞춥니다(노드 SG self 규칙이 1025-65535만 허용).
+  port: 8080
 
 ingress:
   # true면 Ingress 리소스를 만들고, AWS Load Balancer Controller가 이를 보고 ALB를 만듭니다.

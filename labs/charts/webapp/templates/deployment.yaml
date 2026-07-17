@@ -31,7 +31,7 @@ spec:
           {{- end }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.containerPort }}
           {{- if .Values.readinessProbe.enabled }}
           readinessProbe:
             {{- include "webapp.httpProbe" .Values.readinessProbe | nindent 12 }}
