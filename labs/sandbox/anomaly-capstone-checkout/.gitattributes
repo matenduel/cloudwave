@@ -1,0 +1,9 @@
+# Windows 체크아웃 시 CRLF로 바뀌면 promtool/loki 파싱·python 파싱이 깨질 수 있어 LF 고정
+*.jsonl text eol=lf
+*.txt   text eol=lf
+*.py    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.sh    text eol=lf
+# 압축 데이터는 바이너리 취급
+*.gz    -text -diff

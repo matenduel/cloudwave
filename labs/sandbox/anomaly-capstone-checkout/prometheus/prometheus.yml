@@ -1,0 +1,5 @@
+# 자기조사 샌드박스 — Prometheus (데이터는 init 컨테이너가 OpenMetrics에서 백필)
+# 스크레이프 없음: 이 스택은 얼린 스냅샷을 조회만 한다.
+global:
+  scrape_interval: 60s
+  evaluation_interval: 60s
