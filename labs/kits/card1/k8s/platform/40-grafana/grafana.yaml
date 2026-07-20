@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: card1-grafana
+  labels:
+    app.kubernetes.io/name: card1-grafana
+    app.kubernetes.io/part-of: card1-observability-kit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: card1-grafana
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: card1-grafana
+        app.kubernetes.io/part-of: card1-observability-kit
+    spec:
+      securityContext:
+        fsGroup: 472
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: grafana
+          image: grafana/grafana:12.1.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: GF_SECURITY_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: card1-grafana-admin
+                  key: admin-password
+            - name: GF_USERS_ALLOW_SIGN_UP
+              value: "false"
+            - name: GF_PATHS_DATA
+              value: /var/lib/grafana/data
+            - name: GF_AUTH_ANONYMOUS_ENABLED
+              value: "true"
+            - name: GF_AUTH_ANONYMOUS_ORG_ROLE
+              value: Viewer
+            - name: GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH
+              value: /var/lib/grafana/dashboards/card1-student.json
+          ports:
+            - name: http
+              containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            runAsNonRoot: true
+            runAsUser: 472
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+            - name: datasource
+              mountPath: /etc/grafana/provisioning/datasources
+              readOnly: true
+            - name: provider
+              mountPath: /etc/grafana/provisioning/dashboards
+              readOnly: true
+            - name: dashboard
+              mountPath: /var/lib/grafana/dashboards
+              readOnly: true
+            - name: storage
+              mountPath: /var/lib/grafana/data
+      volumes:
+        - name: datasource
+          configMap:
+            name: card1-grafana-datasource
+        - name: provider
+          configMap:
+            name: card1-grafana-provider
+        - name: dashboard
+          configMap:
+            name: card1-grafana-dashboard
+        - name: storage
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: card1-grafana
+  labels:
+    app.kubernetes.io/name: card1-grafana
+    app.kubernetes.io/part-of: card1-observability-kit
+spec:
+  selector:
+    app.kubernetes.io/name: card1-grafana
+  ports:
+    - name: http
+      port: 3000
+      targetPort: http

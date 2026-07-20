@@ -1,0 +1,95 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: card1-promtool-bake
+  labels:
+    app.kubernetes.io/name: card1-promtool-bake
+    app.kubernetes.io/part-of: card1-observability-kit
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: card1-promtool-bake
+    spec:
+      restartPolicy: Never
+      securityContext:
+        fsGroup: 65534
+        seccompProfile:
+          type: RuntimeDefault
+      initContainers:
+        - name: normalize-openmetrics
+          image: python:3.12-alpine
+          imagePullPolicy: IfNotPresent
+          command: ["python3", "/scripts/normalize_openmetrics.py"]
+          env:
+            - name: SOURCE_PATH
+              value: /input/card1_bake_history.openmetrics.gz
+            - name: OUTPUT_PATH
+              value: /work/normalized.openmetrics
+            - name: TSDB_PATH
+              value: /prometheus
+            - name: STEP_SECONDS
+              value: "30"
+            - name: BAKE_LAG_STEPS
+              value: "1"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            runAsNonRoot: true
+            runAsUser: 65534
+          volumeMounts:
+            - name: bake-input
+              mountPath: /input
+              readOnly: true
+            - name: bake-script
+              mountPath: /scripts
+              readOnly: true
+            - name: normalized
+              mountPath: /work
+            - name: prometheus-data
+              mountPath: /prometheus
+      containers:
+        - name: promtool
+          image: prom/prometheus:v3.13.1
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/promtool"]
+          args:
+            - tsdb
+            - create-blocks-from
+            - openmetrics
+            - /work/normalized.openmetrics
+            - /prometheus
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            runAsNonRoot: true
+            runAsUser: 65534
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
+          volumeMounts:
+            - name: normalized
+              mountPath: /work
+              readOnly: true
+            - name: prometheus-data
+              mountPath: /prometheus
+      volumes:
+        - name: bake-input
+          configMap:
+            name: card1-bake-input
+        - name: bake-script
+          configMap:
+            name: card1-bake-script
+            defaultMode: 0444
+        - name: normalized
+          emptyDir: {}
+        - name: prometheus-data
+          persistentVolumeClaim:
+            claimName: card1-prometheus-data

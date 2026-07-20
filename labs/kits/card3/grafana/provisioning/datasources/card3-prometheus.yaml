@@ -1,0 +1,11 @@
+apiVersion: 1
+datasources:
+  - name: Card3 Prometheus
+    uid: card3-prometheus
+    type: prometheus
+    access: proxy
+    url: http://card3-prometheus.dw-observability.svc.cluster.local:9090
+    isDefault: true
+    editable: false
+    jsonData:
+      timeInterval: 15s

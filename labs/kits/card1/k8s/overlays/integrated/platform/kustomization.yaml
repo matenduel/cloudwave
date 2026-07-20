@@ -1,0 +1,38 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: commerce-lab
+
+resources:
+  # Reuse only the kit Prometheus and replay exporter. The existing
+  # kube-prometheus-stack supplies Grafana, Alertmanager, node-exporter, and
+  # kube-state-metrics.
+  - ../../../platform/10-prometheus
+  - ../../../platform/20-exporter
+  - service-monitor.yaml
+
+configMapGenerator:
+  # Replace the standalone scrape configuration: this Prometheus serves only
+  # baked TSDB blocks; live replay is scraped by the existing Operator stack.
+  - name: card1-prometheus-config
+    behavior: replace
+    files:
+      - prometheus.yml=prometheus-baked.yml
+  - name: card1-baked-datasource
+    files:
+      - datasource.yaml=card1-baked-datasource.yaml
+    options:
+      labels:
+        app.kubernetes.io/part-of: card1-observability-kit
+        grafana_datasource: "1"
+  - name: card1-student-dashboard
+    files:
+      - card1-student.json
+    options:
+      labels:
+        app.kubernetes.io/part-of: card1-observability-kit
+        grafana_dashboard: "1"
+
+# Stable names prevent stale sidecar ConfigMaps accumulating after updates.
+generatorOptions:
+  disableNameSuffixHash: true

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: card3-lab
+  labels:
+    app.kubernetes.io/part-of: card3-observability-kit
+    aiops-kit.cloudwave.io/deployment-mode: integrated

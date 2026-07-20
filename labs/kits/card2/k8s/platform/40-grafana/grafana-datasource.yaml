@@ -1,0 +1,11 @@
+apiVersion: 1
+datasources:
+  - name: Card2 Prometheus
+    uid: card2-prometheus
+    type: prometheus
+    access: proxy
+    url: http://card2-prometheus.push-lab.svc.cluster.local:9090
+    isDefault: true
+    editable: false
+    jsonData:
+      timeInterval: 15s

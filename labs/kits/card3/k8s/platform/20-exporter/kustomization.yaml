@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: dw-observability
+resources:
+  - exporter.yaml
+configMapGenerator:
+  - name: card3-exporter-code
+    files:
+      - exporter.py
+  - name: card3-replay-data
+    files:
+      - card3_live_replay.json
+      - card3_metric_meta.json
+generatorOptions:
+  labels:
+    app.kubernetes.io/part-of: card3-observability-kit

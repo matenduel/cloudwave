@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: commerce-lab
+  labels:
+    app.kubernetes.io/part-of: card1-observability-kit
+    aiops-kit.cloudwave.io/deployment-mode: integrated

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: card2-prometheus-data
+  namespace: push-lab
+  labels:
+    app.kubernetes.io/name: card2-prometheus
+    app.kubernetes.io/part-of: card2-observability-kit
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

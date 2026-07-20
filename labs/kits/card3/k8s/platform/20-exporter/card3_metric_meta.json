@@ -1,0 +1,88 @@
+{
+  "metrics": [
+    {
+      "name": "spark_executor_activeTasks",
+      "unit": "tasks",
+      "kind": "gauge",
+      "desc": "Spark 익스큐터에서 현재 실행 중인 태스크 수(배치 작업량 대리)"
+    },
+    {
+      "name": "spark_stage_shuffleReadBytes_rate",
+      "unit": "MB/s",
+      "kind": "rate",
+      "desc": "Spark stage의 shuffle read 처리량(초당). shuffle 있는 stage에서만 큼"
+    },
+    {
+      "name": "dw_scan_bytes_rate",
+      "unit": "GB/s",
+      "kind": "rate",
+      "desc": "쿼리·배치가 스캔한 데이터량(초당). 큰 테이블 스캔 시 급증"
+    },
+    {
+      "name": "container_memory_working_set_ratio",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "컨테이너 메모리 사용률(0~1)"
+    },
+    {
+      "name": "airflow_task_instance_running",
+      "unit": "tasks",
+      "kind": "gauge",
+      "desc": "Airflow에서 현재 running 상태인 태스크 수(스케줄된 DAG 실행)"
+    },
+    {
+      "name": "trino_execution_running_queries",
+      "unit": "queries",
+      "kind": "gauge",
+      "desc": "Trino(대화형 BI 쿼리 엔진)에서 실행 중인 쿼리 수"
+    },
+    {
+      "name": "trino_execution_queued_queries",
+      "unit": "queries",
+      "kind": "gauge",
+      "desc": "Trino에서 대기(큐) 중인 쿼리 수. 동시 용량 초과 시 증가"
+    },
+    {
+      "name": "trino_query_wallTime_p95_seconds",
+      "unit": "s",
+      "kind": "gauge",
+      "desc": "Trino 쿼리 응답시간 p95(초)"
+    },
+    {
+      "name": "cluster_autoscaler_nodes",
+      "unit": "nodes",
+      "kind": "gauge",
+      "desc": "오토스케일러가 띄운 워커 노드 수"
+    },
+    {
+      "name": "dataset_freshness_lag_minutes",
+      "unit": "min",
+      "kind": "gauge",
+      "desc": "핵심 데이터셋의 신선도 지연(분). 마지막 성공 publish 이후 경과 시간"
+    },
+    {
+      "name": "warehouse_storage_used_ratio",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "웨어하우스 스토리지 사용률(0~1)"
+    },
+    {
+      "name": "pipeline_retry_ratio_5m",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "파이프라인 태스크 재시도 비율(최근 5분). 태스크 실패 시 상승"
+    },
+    {
+      "name": "kube_pod_container_status_restarts_total",
+      "unit": "count",
+      "kind": "counter",
+      "desc": "파드 컨테이너의 누적 재시작 횟수"
+    },
+    {
+      "name": "kube_deployment_status_replicas_updated",
+      "unit": "pods",
+      "kind": "gauge",
+      "desc": "디플로이먼트에서 최신 리비전으로 업데이트된 레플리카 수(배포 진행 지표)"
+    }
+  ]
+}

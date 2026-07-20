@@ -1,0 +1,130 @@
+{
+  "metrics": [
+    {
+      "name": "http_requests_total{route=\"/static\"}",
+      "unit": "req/s",
+      "kind": "rate",
+      "desc": "정적 자산 경로의 초당 HTTP 요청 수"
+    },
+    {
+      "name": "http_requests_total{route=\"/api/catalog\"}",
+      "unit": "req/s",
+      "kind": "rate",
+      "desc": "상품 탐색 API 경로의 초당 HTTP 요청 수"
+    },
+    {
+      "name": "http_requests_total{route=\"/checkout\"}",
+      "unit": "req/s",
+      "kind": "rate",
+      "desc": "체크아웃 경로의 초당 HTTP 요청 수"
+    },
+    {
+      "name": "http_requests_total{route=\"/checkout\",status=\"5xx\"}",
+      "unit": "req/s",
+      "kind": "rate",
+      "desc": "체크아웃 경로에서 관측된 초당 HTTP 5xx 응답 수"
+    },
+    {
+      "name": "payment_transactions_total{result=\"success\"}",
+      "unit": "tx/s",
+      "kind": "rate",
+      "desc": "초당 성공 결제 거래 수"
+    },
+    {
+      "name": "payment_transactions_total{result=\"fail\"}",
+      "unit": "tx/s",
+      "kind": "rate",
+      "desc": "초당 실패 결제 거래 수"
+    },
+    {
+      "name": "commerce_payment_failure_ratio_1m",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "최근 1분 결제 시도 중 실패 거래의 비율"
+    },
+    {
+      "name": "commerce_checkout_conversion_ratio_5m",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "최근 5분 체크아웃 시도 대비 성공 결제 비율"
+    },
+    {
+      "name": "container_cpu_usage_seconds_total{namespace=\"demo\",container=\"loadapp\"}",
+      "unit": "cores",
+      "kind": "rate",
+      "desc": "결제 검증 컨테이너가 사용한 CPU의 초당 코어 사용량"
+    },
+    {
+      "name": "container_cpu_cfs_throttled_ratio_5m{container=\"loadapp\"}",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "완전 공정 스케줄러(CFS)가 컨테이너 실행을 스로틀한 주기 비율(최근 5분)"
+    },
+    {
+      "name": "commerce_payment_pending_requests",
+      "unit": "requests",
+      "kind": "gauge",
+      "desc": "결제 admission 과정에서 대기 중인 요청 수"
+    },
+    {
+      "name": "http_request_duration_seconds{route=\"/checkout\",stat=\"p95\"}",
+      "unit": "s",
+      "kind": "gauge",
+      "desc": "체크아웃 HTTP 요청 지속시간의 p95(초)"
+    },
+    {
+      "name": "kube_hpa_status_current_replicas{hpa=\"payment\"}",
+      "unit": "pods",
+      "kind": "gauge",
+      "desc": "결제 HPA가 보고한 현재 레플리카 수"
+    },
+    {
+      "name": "kube_hpa_status_current_replicas{hpa=\"web\"}",
+      "unit": "pods",
+      "kind": "gauge",
+      "desc": "정적 웹 HPA가 보고한 현재 레플리카 수"
+    },
+    {
+      "name": "kube_pod_container_status_restarts_total{container=\"loadapp\"}",
+      "unit": "count",
+      "kind": "counter",
+      "desc": "결제 컨테이너의 누적 재시작 횟수"
+    },
+    {
+      "name": "kube_deployment_status_replicas_updated{deployment=\"payment\"}",
+      "unit": "pods",
+      "kind": "gauge",
+      "desc": "결제 디플로이먼트에서 최신 리비전으로 갱신된 레플리카 수"
+    },
+    {
+      "name": "commerce_cdn_cache_hit_ratio_5m",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "캐시 가능한 정적 요청 중 최근 5분 CDN 캐시 적중 비율"
+    },
+    {
+      "name": "commerce_fraud_reject_ratio_5m",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "최근 5분 fraud 평가 중 거절된 비율"
+    },
+    {
+      "name": "commerce_inventory_sync_items_total",
+      "unit": "items/s",
+      "kind": "rate",
+      "desc": "WMS 또는 ERP에서 동기화된 재고 항목의 초당 처리량"
+    },
+    {
+      "name": "commerce_sale_inventory_available_units",
+      "unit": "units",
+      "kind": "gauge",
+      "desc": "타임세일 대상 상품군에서 현재 판매 가능한 재고 단위 수"
+    },
+    {
+      "name": "commerce_settlement_pending_transactions",
+      "unit": "transactions",
+      "kind": "gauge",
+      "desc": "아직 정산 배치에서 처리되지 않은 결제 거래 수"
+    }
+  ]
+}

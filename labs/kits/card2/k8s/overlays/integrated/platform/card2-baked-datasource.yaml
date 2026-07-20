@@ -1,0 +1,11 @@
+apiVersion: 1
+datasources:
+  - name: card2-baked
+    uid: card2-baked
+    type: prometheus
+    access: proxy
+    url: http://card2-prometheus.push-lab.svc.cluster.local:9090
+    isDefault: false
+    editable: false
+    jsonData:
+      timeInterval: 15s

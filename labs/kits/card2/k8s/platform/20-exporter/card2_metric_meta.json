@@ -1,0 +1,82 @@
+{
+  "metrics": [
+    {
+      "name": "push_notifications_sent_total",
+      "unit": "msg/s",
+      "kind": "rate",
+      "desc": "푸시 알림 발송 counter에 rate를 적용한 초당 발송량"
+    },
+    {
+      "name": "kafka_server_BrokerTopicMetrics_MessagesInPerSec",
+      "unit": "msg/s",
+      "kind": "rate",
+      "desc": "푸시 토픽으로 유입되는 Kafka 메시지의 초당 비율"
+    },
+    {
+      "name": "kafka_consumergroup_lag",
+      "unit": "messages",
+      "kind": "gauge",
+      "desc": "delivery consumer group이 아직 처리하지 못한 메시지 수"
+    },
+    {
+      "name": "campaign_backlog_messages",
+      "unit": "messages",
+      "kind": "gauge",
+      "desc": "broker admission 전 남아 있는 캠페인 대상 메시지 수"
+    },
+    {
+      "name": "http_requests_total",
+      "unit": "req/s",
+      "kind": "rate",
+      "desc": "앱 HTTP 요청 counter에 rate를 적용한 초당 요청량"
+    },
+    {
+      "name": "http_request_duration_seconds",
+      "unit": "s",
+      "kind": "gauge",
+      "desc": "앱 HTTP 요청 지속시간의 합성 p95(초)"
+    },
+    {
+      "name": "notification_delivery_success_ratio",
+      "unit": "ratio",
+      "kind": "gauge",
+      "desc": "최근 5분 eligible terminal callback 중 성공 비율(0~1)"
+    },
+    {
+      "name": "kube_hpa_status_current_replicas",
+      "unit": "pods",
+      "kind": "gauge",
+      "desc": "delivery consumer HPA의 현재 replica 수"
+    },
+    {
+      "name": "kafka_consumergroup_members",
+      "unit": "consumers",
+      "kind": "gauge",
+      "desc": "delivery consumer group에 현재 속한 consumer(member) 수"
+    },
+    {
+      "name": "kube_pod_container_status_restarts_total",
+      "unit": "count",
+      "kind": "counter",
+      "desc": "delivery consumer 파드 컨테이너의 누적 재시작 횟수"
+    },
+    {
+      "name": "kube_deployment_status_replicas_updated",
+      "unit": "pods",
+      "kind": "gauge",
+      "desc": "최신 리비전으로 업데이트된 delivery consumer replica 수"
+    },
+    {
+      "name": "daily_active_users",
+      "unit": "users",
+      "kind": "gauge",
+      "desc": "calendar-day 기준 당일 누적 활성 사용자 수"
+    },
+    {
+      "name": "unsubscribe_total",
+      "unit": "count",
+      "kind": "counter",
+      "desc": "푸시 수신 해지의 누적 건수"
+    }
+  ]
+}

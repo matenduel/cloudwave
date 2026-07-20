@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../../bake
+patches:
+  - target:
+      kind: Job
+      name: card2-promtool-bake
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/initContainers/0/env/0/value
+        value: /input/card2_bake_full.openmetrics.gz
+      - op: replace
+        path: /spec/template/spec/initContainers/0/env/4/value
+        value: "0"

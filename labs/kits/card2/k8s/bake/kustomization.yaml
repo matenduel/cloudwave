@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: push-lab
+resources:
+  - job.yaml
+configMapGenerator:
+  - name: card2-bake-input
+    files:
+      - data/card2_bake_history.openmetrics.gz
+      - data/card2_bake_full.openmetrics.gz
+  - name: card2-bake-script
+    files:
+      - normalize_openmetrics.py
+generatorOptions:
+  labels:
+    app.kubernetes.io/part-of: card2-observability-kit

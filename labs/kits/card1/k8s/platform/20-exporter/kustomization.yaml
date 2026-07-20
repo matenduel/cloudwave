@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: commerce-lab
+resources:
+  - exporter.yaml
+configMapGenerator:
+  - name: card1-exporter-code
+    files:
+      - exporter.py
+  - name: card1-replay-data
+    files:
+      - card1_live_replay.json
+      - card1_metric_meta.json
+generatorOptions:
+  labels:
+    app.kubernetes.io/part-of: card1-observability-kit

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: card1-prometheus-data
+  namespace: commerce-lab
+  labels:
+    app.kubernetes.io/name: card1-prometheus
+    app.kubernetes.io/part-of: card1-observability-kit
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

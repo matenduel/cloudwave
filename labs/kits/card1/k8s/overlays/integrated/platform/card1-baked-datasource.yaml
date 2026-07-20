@@ -1,0 +1,11 @@
+apiVersion: 1
+datasources:
+  - name: card1-baked
+    uid: card1-baked
+    type: prometheus
+    access: proxy
+    url: http://card1-prometheus.commerce-lab.svc.cluster.local:9090
+    isDefault: false
+    editable: false
+    jsonData:
+      timeInterval: 15s

@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# This child overlay is deployable separately so the bake Job can finish
+# before the Prometheus Deployment starts using the same PVC.
+namespace: commerce-lab
+
+resources:
+  - ../../../bake

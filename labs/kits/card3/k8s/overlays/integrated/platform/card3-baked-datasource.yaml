@@ -1,0 +1,11 @@
+apiVersion: 1
+datasources:
+  - name: card3-baked
+    uid: card3-baked
+    type: prometheus
+    access: proxy
+    url: http://card3-prometheus.card3-lab.svc.cluster.local:9090
+    isDefault: false
+    editable: false
+    jsonData:
+      timeInterval: 15s

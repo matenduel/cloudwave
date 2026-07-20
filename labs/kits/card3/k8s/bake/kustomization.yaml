@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: dw-observability
+resources:
+  - job.yaml
+configMapGenerator:
+  - name: card3-bake-input
+    files:
+      - data/card3_bake_history.openmetrics.gz
+      - data/card3_bake_full.openmetrics.gz
+  - name: card3-bake-script
+    files:
+      - normalize_openmetrics.py
+generatorOptions:
+  labels:
+    app.kubernetes.io/part-of: card3-observability-kit

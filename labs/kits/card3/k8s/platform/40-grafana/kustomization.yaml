@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: dw-observability
+resources:
+  - grafana.yaml
+configMapGenerator:
+  - name: card3-grafana-datasource
+    files:
+      - datasource.yaml=grafana-datasource.yaml
+  - name: card3-grafana-provider
+    files:
+      - provider.yaml=grafana-dashboard-provider.yaml
+  - name: card3-grafana-dashboard
+    files:
+      - card3-student.json
+generatorOptions:
+  labels:
+    app.kubernetes.io/part-of: card3-observability-kit

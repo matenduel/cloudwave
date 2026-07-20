@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: card3-live-replay
+  labels:
+    app.kubernetes.io/name: card3-live-replay
+    app.kubernetes.io/part-of: card3-observability-kit
+    # kube-prometheus-stack's Helm-value selector requires this label.
+    release: monitoring
+spec:
+  namespaceSelector:
+    matchNames:
+      - card3-lab
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: card3-live-replay
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 15s
+      honorLabels: true
