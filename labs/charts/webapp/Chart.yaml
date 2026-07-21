@@ -1,0 +1,9 @@
+apiVersion: v2
+name: webapp
+description: "CLOUDWAVE 실습용 미니 웹앱 차트 — 비특권 nginx(nginx-unprivileged, 8080)를 Deployment/Service/Ingress(ALB)로 배포합니다"
+type: application
+# 차트 자체의 버전 (템플릿·기본값이 바뀌면 올립니다)
+# 0.3.0: 비특권 nginx(8080) 전환 — 노드 SG가 저포트(80) 노드 간 통신을 차단
+version: 0.3.0
+# 이 차트가 배포하는 앱(nginx)의 버전 — image.tag를 비워두면 이 값이 태그로 쓰입니다
+appVersion: "1.29.8-alpine"

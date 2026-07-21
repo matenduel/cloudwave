@@ -1,0 +1,18 @@
+{{ .Release.Name }} 릴리스가 설치되었습니다.
+
+{{- if .Values.ingress.enabled }}
+
+ALB가 만들어지기까지 2~3분 걸립니다. 주소 확인:
+
+  kubectl get ingress {{ include "webapp.fullname" . }}
+
+ADDRESS 열에 나온 주소로 접속해 봅니다:
+
+  curl http://<ADDRESS>/
+{{- else }}
+
+Ingress 없이 설치되었습니다. 포트포워딩으로 확인합니다:
+
+  kubectl port-forward svc/{{ include "webapp.fullname" . }} 8080:{{ .Values.service.port }}
+  curl http://localhost:8080/
+{{- end }}

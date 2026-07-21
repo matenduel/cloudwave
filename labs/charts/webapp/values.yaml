@@ -1,0 +1,74 @@
+# webapp 차트 기본값.
+# helm install/upgrade에서 -f 파일이나 --set으로 덮어쓸 수 있습니다.
+
+# 파드 복제본 수 — upgrade 데모에서 이 값을 바꿔 봅니다.
+replicaCount: 2
+
+image:
+  # 비특권 nginx 공식 이미지(Docker Hub nginxinc/nginx-unprivileged)를 씁니다.
+  # root 없이 8080 포트로 listen합니다(노드 SG가 저포트 노드 간 통신을 막으므로 80 대신 8080 사용).
+  repository: nginxinc/nginx-unprivileged
+  # 비워두면 Chart.yaml의 appVersion(1.29.8-alpine)이 태그로 쓰입니다.
+  # upgrade 데모에서 --set image.tag=... 로 바꿔 봅니다.
+  tag: ""
+  pullPolicy: IfNotPresent
+
+# 컨테이너가 listen하는 포트 — nginx-unprivileged의 기본 listen 포트(8080)와 맞춥니다.
+containerPort: 8080
+
+# 배포 전략 — 비워두면({}) 쿠버네티스 기본값(RollingUpdate, maxSurge 25% / maxUnavailable 25%)이 쓰입니다.
+# 배포 전략 실습에서 이렇게 바꿔 봅니다:
+#   --set strategy.rollingUpdate.maxSurge=0 --set strategy.rollingUpdate.maxUnavailable=1
+strategy: {}
+
+serviceAccount:
+  # 비워두면 파드가 네임스페이스의 default ServiceAccount로 뜹니다.
+  # 워크로드 권한 실습에서 --set serviceAccount.name=<이름> 으로
+  # 미리 만들어 둔 ServiceAccount를 지정할 수 있습니다(차트가 SA를 만들지는 않습니다).
+  name: ""
+
+# 0보다 크면 nginx 시작 전에 지정한 초만큼 멈춥니다.
+# 느리게 부팅하는 앱을 흉내 내는 실습용 파라미터입니다(probe 실습).
+startupDelaySeconds: 0
+
+# probe 3종 공통: enabled/path 외에 initialDelaySeconds · periodSeconds ·
+# timeoutSeconds · successThreshold · failureThreshold 를 --set으로 지정하면
+# 그대로 반영되고, 지정하지 않으면 쿠버네티스 기본값이 쓰입니다.
+readinessProbe:
+  # 준비된 파드만 Service 엔드포인트에 넣습니다. 실패해도 파드를 재시작하지는 않습니다.
+  enabled: true
+  path: /
+
+livenessProbe:
+  # true면 살아있는지 검사하고, 실패가 쌓이면 컨테이너를 재시작합니다.
+  enabled: false
+  path: /
+
+startupProbe:
+  # true면 부팅이 끝날 때까지 liveness/readiness 검사를 미룹니다.
+  enabled: false
+  path: /
+
+service:
+  # ALB가 파드로 직접 트래픽을 보내므로(target-type: ip) ClusterIP면 충분합니다.
+  type: ClusterIP
+  # 컨테이너와 같은 8080으로 맞춥니다(노드 SG self 규칙이 1025-65535만 허용).
+  port: 8080
+
+ingress:
+  # true면 Ingress 리소스를 만들고, AWS Load Balancer Controller가 이를 보고 ALB를 만듭니다.
+  enabled: true
+  className: alb
+  annotations:
+    # internet-facing: 인터넷에서 접근 가능한 공개 ALB (기본값 internal은 VPC 내부 전용)
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    # ip: ALB가 노드포트를 거치지 않고 파드 IP로 직접 전달 (EKS 권장)
+    alb.ingress.kubernetes.io/target-type: ip
+
+# 실습용 최소 요청/제한 — 노드 스케줄링 감각을 위해 명시합니다.
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    memory: 128Mi
